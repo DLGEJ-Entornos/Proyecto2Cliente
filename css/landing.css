@@ -1,8 +1,17 @@
-
 body{
     /* font-family: 'Courier New', Courier, monospace; */
     line-height: 1.5em;
     background-color: #425067;   
+}
+#loginReg{
+  ddisplay:none;
+  border: 0px solid red;
+  width: 80%;
+  height: 0px;
+  position: absolute;
+  lleft:50%;
+  z-index:1;
+  background-color: red;
 }
 h1,h2,h3,h4{
     text-align: center;
