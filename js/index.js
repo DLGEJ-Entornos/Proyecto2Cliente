@@ -48,3 +48,9 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
+function mod() {
+  let id = $('idMod');
+  let nombre = $('nomMod');
+  let pass = $('passMod');
+  modifUser(id, nombre, pass) 
+}
