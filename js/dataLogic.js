@@ -26,12 +26,12 @@ function guardarUser(nombre, pass) {
   localStorage.setItem("Usuarios", JSON.stringify(jsonUsers)); //json actualizado
 }
 
-function modifUser(id, nombre, pass) { //DEJA PASAR PARAMS VACIOS, autoAsign dentro.
-  try {
+function modifUser(id, nombre, pass) { //nom,pass allow ''| null
+  try { //CONTROL DE ERRORES
     jsonUsers = JSON.parse(localStorage.getItem("Usuarios"));
 
-    var user, i = 0,
-      indice, encontrado = false;
+    var user, i = 0,indice, encontrado = false;
+    console.log(jsonUsers.Usuarios.length);
     while (i < jsonUsers.Usuarios.length && !encontrado) {
       let idUsers = jsonUsers.Usuarios[i].id;
       if (idUsers == id) {
@@ -39,10 +39,11 @@ function modifUser(id, nombre, pass) { //DEJA PASAR PARAMS VACIOS, autoAsign den
         indice = i;
         user = jsonUsers.Usuarios[i];
       }
+      i++;
     }
     if (encontrado) { //MODIFICAR DATOS COMO SE QUIERA
-      nombre != null ? user.nombre = nombre : console.log('nombre pasado null')
-      pass != null ? user.pass = pass : console.log('pass pasado null')
+      nombre != '' ? user.nombre = nombre : console.log('nombre pasado null')
+      pass != '' ? user.pass = pass : console.log('pass pasado null')
       jsonUsers.Usuarios[indice] = user;
       localStorage.setItem("Usuarios", JSON.stringify(jsonUsers));
     } else {
