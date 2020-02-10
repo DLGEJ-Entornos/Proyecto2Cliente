@@ -4,6 +4,7 @@ if (localStorage.getItem('Usuarios') == null) {
     "Usuarios": [{
       "nombre": "jon",
       "pass": "doe",
+      "foto": "../assets/profilePic/jon.jpg",
       "id": 0
     }]
   };
@@ -11,7 +12,7 @@ if (localStorage.getItem('Usuarios') == null) {
 }
 var jsonUsers;
 
-function guardarUser(nombre, pass) {
+function guardarUser(nombre, pass, foto) {
   //para obtener JSON  
   jsonUsers = JSON.parse(localStorage.getItem("Usuarios"));
   //AUTOGEN ID
@@ -20,6 +21,7 @@ function guardarUser(nombre, pass) {
   nuevo = {
     "nombre": nombre,
     "pass": pass,
+    "foto": foto,
     "id": id
   };
   jsonUsers.Usuarios.push(nuevo);
