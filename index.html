@@ -8,6 +8,7 @@
   <title>Proyecto 2 CLIENTE - FORO</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/shared.css">
 </head>
 
 <body>
@@ -17,7 +18,6 @@
         <img src="assets/logo.png" alt="logoForo">
         <h4>FORO</h4>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <!--a class="navbar-brand" href="#">Secciones</a-->
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
@@ -26,8 +26,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Hilos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Mi Área</a>
+              <li  class="nav-item">
+                <a id="miAreaLink" class="nav-link disabled" href="#">Mi Área</a>
               </li>
             </ul>
           </div>
@@ -40,17 +40,17 @@
             <ul class="navbar-nav">
               <div id="loginReg">
               </div>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="openLoginRegis('log')">Login<span class="sr-only">(current)</span></a>
+              <li id="logORnombre" class="nav-item">
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="openLoginRegis('regis')">Regístrate</a>
+              <li id="regORlogOut" class="nav-item">
               </li>
             </ul>
           </div>
         </nav>
       </header>
     </div>
+
+
     <div class="principal row">
       <main class="col-sm-8 bg-white">
         <section>
@@ -84,6 +84,8 @@
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./js/dataLogic.js"></script>
   <script src="./js/index.js"></script>
+  <script src="./js/logueo.js"></script>
+    
 </body>
 
 </html>
