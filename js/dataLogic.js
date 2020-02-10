@@ -28,7 +28,7 @@ function guardarUser(nombre, pass, foto) {
   localStorage.setItem("Usuarios", JSON.stringify(jsonUsers)); //json actualizado
 }
 
-function modifUser(id, nombre, pass) { //nom,pass allow ''| null
+function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
   try { //CONTROL DE ERRORES
     jsonUsers = JSON.parse(localStorage.getItem("Usuarios"));
 
@@ -46,6 +46,7 @@ function modifUser(id, nombre, pass) { //nom,pass allow ''| null
     if (encontrado) { //MODIFICAR DATOS COMO SE QUIERA
       nombre != '' ? user.nombre = nombre : console.log('nombre pasado null')
       pass != '' ? user.pass = pass : console.log('pass pasado null')
+      foto != '' ? user.foto = foto : console.log('foto pasado null')
       jsonUsers.Usuarios[indice] = user;
       localStorage.setItem("Usuarios", JSON.stringify(jsonUsers));
     } else {
