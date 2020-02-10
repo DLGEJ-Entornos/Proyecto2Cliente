@@ -1,3 +1,15 @@
+///////// OBJETOS /////////////////
+//USUARIOS
+function ListaUsuarios(arrUsuarios) {
+  this.llenar = arrUsuarios;
+}
+var ArrUsuarios = [];
+function Usuario(nombre,pass,foto,id) {
+  
+}
+
+//HILOS
+///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -10,17 +22,6 @@ function openLoginRegis(opcion) {
     //fontSize: "3em",
     //borderWidth: "10px"
   }, 500 );
-  function loguear() {
-   console.log("logueado"); 
-   //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
-   ////if () {
-   ////   
-   //// } 
-    
-  }
-  function registrar() {//CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
-   console.log("registrado"); 
-  }
   function salir() {
     console.log('saliendo login');
     divLogReg.empty();

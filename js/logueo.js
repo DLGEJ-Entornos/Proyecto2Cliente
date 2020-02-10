@@ -43,7 +43,8 @@ function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
   try { //CONTROL DE ERRORES
     jsonUsers = JSON.parse(localStorage.getItem("Usuarios"));
 
-    var user, i = 0,indice, encontrado = false;
+    var user, i = 0,
+      indice, encontrado = false;
     console.log(jsonUsers.Usuarios.length);
     while (i < jsonUsers.Usuarios.length && !encontrado) {
       let idUsers = jsonUsers.Usuarios[i].id;
@@ -67,34 +68,47 @@ function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
     console.error(e);
   }
 }
-////////////////////////////////////////////////////////////////
 
-//Comprueba que esta logueado
-//
-//logueado = true;
+function loguear() {
+  console.log("logueado");
+  //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
+  ////if () {
+  ////   
+  //// } 
+
+}
+
+function registrar() { //CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
+  console.log("registrado");
+}
+
+////////////////////////////////////////////////////////////////
+logueado = loguear();
+
+// MODIFICACIÓN DEL HEADER
 if (logueado) {
-  miAreaLink.setAttribute('class','nav-link');
+  miAreaLink.setAttribute('class', 'nav-link');
 
 
   let nombre = document.createElement('a');
-  nombre.setAttribute('class','nav-link');
-  nombre.setAttribute('disabled','');
-  nombre.setAttribute('id','nomUserTag');
+  nombre.setAttribute('class', 'nav-link');
+  nombre.setAttribute('disabled', '');
+  nombre.setAttribute('id', 'nomUserTag');
   nombre.innerText = '<AQUI NOMBRE USER>'; //NOMBRE USER 
   logORnombre.append(nombre);
 
   let logOut = document.createElement('a');
-  logOut.setAttribute('class','nav-link');
-  logOut.setAttribute('onclick','logOut()');
+  logOut.setAttribute('class', 'nav-link');
+  logOut.setAttribute('onclick', 'logOut()');
   logOut.innerText = 'Cerrar Sesión';
   regORlogOut.append(logOut);
 
-}else{
-  miAreaLink.setAttribute('class','nav-link disabled');
+} else {
+  miAreaLink.setAttribute('class', 'nav-link disabled');
 
   let login = document.createElement('a');
-  login.setAttribute('class','nav-link');
-  login.setAttribute('onclick','openLoginRegis("log")');
+  login.setAttribute('class', 'nav-link');
+  login.setAttribute('onclick', 'openLoginRegis("log")');
   login.innerText = 'Login';
   let span = document.createElement('span');
   span.setAttribute('class', 'sr-only');
@@ -103,8 +117,8 @@ if (logueado) {
   logORnombre.append(login);
 
   let registro = document.createElement('a');
-  registro.setAttribute('class','nav-link');
-  registro.setAttribute('onclick','openLoginRegis("regis")');
+  registro.setAttribute('class', 'nav-link');
+  registro.setAttribute('onclick', 'openLoginRegis("regis")');
   registro.innerText = 'Regístrate';
   regORlogOut.append(registro);
 }
