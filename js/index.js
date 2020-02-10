@@ -12,6 +12,10 @@ function openLoginRegis(opcion) {
   }, 500 );
   function loguear() {
    console.log("logueado"); 
+   //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
+   ////if () {
+   ////   
+   //// } 
     
   }
   function registrar() {//CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
@@ -48,7 +52,7 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
-function mod() {
+function mod() { // ESTO VA EN MI AREA
   let id = $('#idMod')[0].value;
   let nombre = $('#nomMod')[0].value;
   let pass = $('#passMod')[0].value;
