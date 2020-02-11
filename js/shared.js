@@ -1,3 +1,12 @@
+var listaUsers = new ListaUsuarios(); 
+if (!listaUsers.existe) {
+  listaUsers.init()
+}else{
+  listaUsers.volcar();
+}
+
+
+//HEADER///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -41,3 +50,4 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
+////////////////////////////////////////////
