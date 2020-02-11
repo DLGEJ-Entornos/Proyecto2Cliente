@@ -1,16 +1,3 @@
-///////// OBJETOS /////////////////
-//USUARIOS
-var listaUsuarios = [];
-function ListaUsuarios() {
-  this.llenar = arrUsuarios;
-  this.mostrar = console.table(arrUsuarios);
-}
-function Usuario(nombre,pass,foto,id) {
-  
-}
-
-//HILOS
-///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -53,11 +40,4 @@ function openLoginRegis(opcion) {
       exit.onclick = salir;
   }
   opcion == 'log' ? create('log') : create('regis');
-}
-function mod() { // ESTO VA EN MI AREA
-  let id = $('#idMod')[0].value;
-  let nombre = $('#nomMod')[0].value;
-  let pass = $('#passMod')[0].value;
-  let foto = $('#passMod')[0].value; //TODO: RECOGE URI IMAGEN (CREA EL FRONT)
-  modifUser(id, nombre, pass, foto) 
 }

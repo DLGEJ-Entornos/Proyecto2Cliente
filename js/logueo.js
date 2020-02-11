@@ -22,6 +22,7 @@ if (localStorage.getItem('Usuarios') == null) {
   };
   localStorage.setItem("Usuarios", JSON.stringify(primerUser));
 }
+listaUsuarios.volcarDeLS;
 
 function guardarUser(nombre, pass, foto) {
   //para obtener JSON  
