@@ -1,10 +1,10 @@
 var listaUsers = new ListaUsuarios(); 
 //debugger;
 //!listaUsers.existe
-if (localStorage.getItem("Usuarios") == null) {
+console.log("Shared, valor de stVacio:",stVacio);
+if (stVacio) { //quiero usar metodo de obj
   listaUsers.init()
 }else{
-  debugger;
   listaUsers.volcar();
 }
 listaUsers.mostrar();

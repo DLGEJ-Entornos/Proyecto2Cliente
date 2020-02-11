@@ -2,8 +2,8 @@
 function Usuario(nombre,pass,foto) {
   function genId() {
     let res;
-    let listaUsers = new ListaUsuarios();
-    if (listaUsers.lista.length == 0) {
+    let listaUsers = new ListaUsuarios(); //inicia vacia 
+    if (listaUsers.lista.length == 0) { //siempre va a ser 0
       res = 0;
     }else{
       res = listaUsers.lista[listaUsers.lista.length-1].id + 1;
@@ -19,7 +19,6 @@ function Usuario(nombre,pass,foto) {
 }
 
 function ListaUsuarios() {
-  this.existe = stUsersExist; 
   this.init = stInitUsers; 
   this.lista = new Array(); //de objs 
   this.volcar = volcarDeSt;
@@ -28,9 +27,8 @@ function ListaUsuarios() {
   this.add = (objUsuario) => {
     this.lista.push(objUsuario);
   };
-  this.mostrar = () => {
-  let lUsers= new ListaUsuarios();
-    console.table(lUsers.lista);
+  this.mostrar = function (){
+    console.table(this.lista);
   }
 }
 
