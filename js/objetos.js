@@ -1,10 +1,11 @@
 //USUARIOS
 function Usuario(nombre,pass,foto) {
-  function genID() {
-    if (this.lista.length == 0) {
+  function genId() {
+    let listaUsers = new ListaUsuarios();
+    if (listaUsers.lista.length == 0) {
       return 0; 
     }else{
-      return this.lista[this.lista.length-1].id + 1;
+      return listaUsers.lista[listaUsers.lista.length-1].id + 1;
     }
   }
 
@@ -24,7 +25,7 @@ function ListaUsuarios() {
   this.add = (objUsuario) => {
     this.lista.push(objUsuario);
   };
-  this.mostrar = console.table(this.lista);
+  this.mostrar = () => {console.table(this.lista);}
 }
 
 //HILOS

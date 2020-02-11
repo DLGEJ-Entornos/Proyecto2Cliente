@@ -1,15 +1,26 @@
-var listaUsers = new ListaUsuarios(); 
-//debugger;
-//!listaUsers.existe
-if (localStorage.getItem("Usuarios") == null) {
-  listaUsers.init()
-}else{
-  listaUsers.volcar();
+///////// OBJETOS /////////////////
+//USUARIOS
+var listaUsuarios = [];
+function ListaUsuarios() {
+  this.lista = new Array(); 
+
+  function volcar(){
+    this.lista = JSON.parse(localStorage.getItem("Usuarios"));  
+  }
+  //vuelca de LS a lista (Array)
+  this.volcarDeLS = ; 
+  this.add = (objUsuario) => {
+    this.lista.push(objUsuario);
+    guardarUser(
+  };
+  this.mostrar = console.table(lista);
 }
-listaUsers.mostrar();
+function Usuario(nombre,pass,foto,id) {
+  
+}
 
-
-//HEADER///////////////////////////////////
+//HILOS
+///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -53,4 +64,10 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
-////////////////////////////////////////////
+function mod() { // ESTO VA EN MI AREA
+  let id = $('#idMod')[0].value;
+  let nombre = $('#nomMod')[0].value;
+  let pass = $('#passMod')[0].value;
+  let foto = $('#passMod')[0].value; //TODO: RECOGE URI IMAGEN (CREA EL FRONT)
+  modifUser(id, nombre, pass, foto) 
+}

@@ -10,6 +10,7 @@ var logORnombre = document.getElementById('logORnombre');
 var regORlogOut = document.getElementById('regORlogOut');
 
 ///////// BACKEND /////
+/*
 if (localStorage.getItem('Usuarios') == null) {
 
   let primerUser = {
@@ -22,7 +23,7 @@ if (localStorage.getItem('Usuarios') == null) {
   };
   localStorage.setItem("Usuarios", JSON.stringify(primerUser));
 }
-listaUsuarios.volcarDeLS;
+//listaUsuarios.volcarDeLS;
 
 function guardarUser(nombre, pass, foto) {
   //para obtener JSON  
@@ -39,7 +40,7 @@ function guardarUser(nombre, pass, foto) {
   jsonUsers.Usuarios.push(nuevo);
   localStorage.setItem("Usuarios", JSON.stringify(jsonUsers)); //json actualizado
 }
-
+*/
 function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
   try { //CONTROL DE ERRORES
     jsonUsers = JSON.parse(localStorage.getItem("Usuarios"));
