@@ -1,18 +1,21 @@
 //USUARIOS
 function Usuario(nombre,pass,foto) {
   function genId() {
+    let res;
     let listaUsers = new ListaUsuarios();
     if (listaUsers.lista.length == 0) {
-      return 0; 
+      res = 0;
     }else{
-      return listaUsers.lista[listaUsers.lista.length-1].id + 1;
+      res = listaUsers.lista[listaUsers.lista.length-1].id + 1;
     }
+    console.log(res);
+    return res;
   }
 
   this.nombre = nombre;
   this.pass = pass;
   this.foto = foto;
-  this.id = genId;
+  this.id = 0;
 }
 
 function ListaUsuarios() {
@@ -25,7 +28,10 @@ function ListaUsuarios() {
   this.add = (objUsuario) => {
     this.lista.push(objUsuario);
   };
-  this.mostrar = () => {console.table(this.lista);}
+  this.mostrar = () => {
+  let lUsers= new ListaUsuarios();
+    console.table(lUsers.lista);
+  }
 }
 
 //HILOS

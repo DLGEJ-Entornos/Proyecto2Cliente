@@ -1,11 +1,5 @@
-//var stUsersExist = () => {
-//  debugger;
-//  localStorage.getItem('Usuarios') != null ?
-//    true : false
-//}
-
 function stUsersExist() {
-  debugger;
+  //debugger;
   if (localStorage.getItem('Usuarios') != null) {
     return true;
   } else {
@@ -20,7 +14,7 @@ function stInitUsers() {
   let listaUsers = new ListaUsuarios();
 
   listaUsers.add(primerUsuario);
-  listaUsers.grabar(this.lista);
+  listaUsers.grabar(listaUsers.lista);
 
 }
 
@@ -32,5 +26,6 @@ function stGrabar(lista) { //array 'Jsonizado'
 }
 
 function volcarDeSt() {
-  this.lista = JSON.parse(localStorage.getItem("Usuarios")).Usuarios;
+  console.log(JSON.parse(localStorage.getItem("Usuarios")));
+  this.lista = JSON.parse(localStorage.getItem("Usuarios"));
 }

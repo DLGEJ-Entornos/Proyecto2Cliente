@@ -1,16 +1,3 @@
-var listaUsers = new ListaUsuarios(); 
-//debugger;
-//!listaUsers.existe
-if (localStorage.getItem("Usuarios") == null) {
-  listaUsers.init()
-}else{
-  debugger;
-  listaUsers.volcar();
-}
-listaUsers.mostrar();
-
-
-//HEADER///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -23,6 +10,17 @@ function openLoginRegis(opcion) {
     //fontSize: "3em",
     //borderWidth: "10px"
   }, 500 );
+  function loguear() {
+   console.log("logueado"); 
+   //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
+   ////if () {
+   ////   
+   //// } 
+    
+  }
+  function registrar() {//CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
+   console.log("registrado"); 
+  }
   function salir() {
     console.log('saliendo login');
     divLogReg.empty();
@@ -54,4 +52,10 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
-////////////////////////////////////////////
+function mod() { // ESTO VA EN MI AREA
+  let id = $('#idMod')[0].value;
+  let nombre = $('#nomMod')[0].value;
+  let pass = $('#passMod')[0].value;
+  let foto = $('#passMod')[0].value; //TODO: RECOGE URI IMAGEN (CREA EL FRONT)
+  modifUser(id, nombre, pass, foto) 
+}
