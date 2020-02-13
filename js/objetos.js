@@ -1,12 +1,14 @@
 //USUARIOS
 function Usuario(nombre,pass,foto) {
+  debugger;
   function genId() {
     let res;
-    let listaUsers = new ListaUsuarios(); //inicia vacia 
-    if (listaUsers.lista.length == 0) { //siempre va a ser 0
+    //let listaUsers = new ListaUsuarios(); //inicia vacia 
+    let lengthLista = Object.keys(listaUsers.lista).length;
+    if (lengthLista == 0) { //siempre va a ser 0
       res = 0;
     }else{
-      res = listaUsers.lista[listaUsers.lista.length-1].id + 1;
+      res = listaUsers.lista[lengthLista-1].id + 1;
     }
     console.log(res);
     return res;
@@ -15,7 +17,7 @@ function Usuario(nombre,pass,foto) {
   this.nombre = nombre;
   this.pass = pass;
   this.foto = foto;
-  this.id = 0;
+  this.id = genId();
 }
 
 function ListaUsuarios() {

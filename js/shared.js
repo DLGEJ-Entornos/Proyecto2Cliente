@@ -9,7 +9,6 @@ if (stVacio) { //quiero usar metodo de obj
 }
 listaUsers.mostrar();
 
-
 //HEADER///////////////////////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
