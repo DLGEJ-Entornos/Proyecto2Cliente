@@ -15,7 +15,9 @@ if (stVacio) { //quiero usar metodo de obj
 }
 listaUsers.mostrar();
 
-//HEADER///////////////////////////////////
+
+
+//HEADER///login///registro////////////////
 function openLoginRegis(opcion) {
   var divLogReg = $( "#loginReg" );
   divLogReg.animate({
@@ -71,7 +73,11 @@ function registrar() { //CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
   opcion == 'log' ? create('log') : create('regis');
 }
 
-// MODIFICACIÓN DEL HEADER
+
+
+// MODIFICACIÓN DEL HEADER if LOGUEADO
+  //en func para hacer a cada refresco de pagina?
+  //comprueba cookies
 if (logueado) {
   miAreaLink.setAttribute('class', 'nav-link');
 

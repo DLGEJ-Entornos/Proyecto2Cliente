@@ -13,6 +13,9 @@ function Usuario(nombre,pass,foto) {
     console.log(res);
     return res;
   }
+  function saveCookie(id){
+    
+  }
 
   this.nombre = nombre;
   this.pass = pass;

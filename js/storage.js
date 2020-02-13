@@ -54,3 +54,6 @@ function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
     console.error(e);
   }
 }
+
+
+//COOKIES
