@@ -1,5 +1,5 @@
 var listaUsers;
-var stVacio = localStorage.length == 0 ? true : false ;
+var stVacio = localStorage.length == 0 ? true : false;
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
@@ -57,3 +57,7 @@ function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
 
 
 //COOKIES
+function cookUserSave(id) {
+  document.cookie = 'logueado=' + id + ';';
+  console.log("Cookie Guardada: ", document.cookie);
+}

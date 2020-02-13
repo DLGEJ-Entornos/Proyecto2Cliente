@@ -35,6 +35,9 @@ function openLoginRegis(opcion) {
 function loguear() {
   console.log("logueado");
   //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
+  if(listaUsers.find(inpNom.value)){ //metodo devuelve objeto User si encuentra
+    
+  }
 }
 
 function registrar() { //CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
@@ -51,9 +54,11 @@ function registrar() { //CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
   }, 500 );
     
   }
+  var inpNom;
+  var inpPass;
   function create(opcion) { //CREACION DINAMICA DEL DOM
-    var inpNom = document.createElement('input');
-    var inpPass = document.createElement('input');
+    inpNom = document.createElement('input');
+    inpPass = document.createElement('input');
     var br = document.createElement('br');
     var confirm = document.createElement('button');
     var exit = document.createElement('button');
