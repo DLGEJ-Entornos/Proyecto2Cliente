@@ -1,5 +1,11 @@
+var logueado = false;
+// DECLARAR SIN inicializar? cogeran values null?
+var miAreaLink = document.getElementById('miAreaLink');
+var logORnombre = document.getElementById('logORnombre');
+var regORlogOut = document.getElementById('regORlogOut');
+//
+
 var listaUsers = new ListaUsuarios(); 
-//debugger;
 //!listaUsers.existe
 console.log("Shared, valor de stVacio:",stVacio);
 if (stVacio) { //quiero usar metodo de obj
@@ -22,6 +28,17 @@ function openLoginRegis(opcion) {
     //fontSize: "3em",
     //borderWidth: "10px"
   }, 500 );
+
+
+function loguear() {
+  console.log("logueado");
+  //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
+}
+
+function registrar() { //CONTROLAR NOMBRE SIN SIMBOLOS ni VACIO
+  console.log("registrado");
+}
+
   function salir() {
     console.log('saliendo login');
     divLogReg.empty();
@@ -53,4 +70,43 @@ function openLoginRegis(opcion) {
   }
   opcion == 'log' ? create('log') : create('regis');
 }
+
+// MODIFICACIÓN DEL HEADER
+if (logueado) {
+  miAreaLink.setAttribute('class', 'nav-link');
+
+
+  let nombre = document.createElement('a');
+  nombre.setAttribute('class', 'nav-link');
+  nombre.setAttribute('disabled', '');
+  nombre.setAttribute('id', 'nomUserTag');
+  nombre.innerText = '<AQUI NOMBRE USER>'; //NOMBRE USER 
+  logORnombre.append(nombre);
+
+  let logOut = document.createElement('a');
+  logOut.setAttribute('class', 'nav-link');
+  logOut.setAttribute('onclick', 'logOut()');
+  logOut.innerText = 'Cerrar Sesión';
+  regORlogOut.append(logOut);
+
+} else {
+  miAreaLink.setAttribute('class', 'nav-link disabled');
+
+  let login = document.createElement('a');
+  login.setAttribute('class', 'nav-link');
+  login.setAttribute('onclick', 'openLoginRegis("log")');
+  login.innerText = 'Login';
+  let span = document.createElement('span');
+  span.setAttribute('class', 'sr-only');
+  span.innerText = '(current)';
+  login.append(span);
+  logORnombre.append(login);
+
+  let registro = document.createElement('a');
+  registro.setAttribute('class', 'nav-link');
+  registro.setAttribute('onclick', 'openLoginRegis("regis")');
+  registro.innerText = 'Regístrate';
+  regORlogOut.append(registro);
+}
+
 ////////////////////////////////////////////
