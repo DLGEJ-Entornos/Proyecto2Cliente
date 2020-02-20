@@ -1,4 +1,5 @@
-var listaUsers;
+var listaUsers = null;
+//debugger;
 var stVacio = localStorage.length == 0 ? true : false;
 
 function stInitUsers() {
@@ -13,10 +14,7 @@ function stInitUsers() {
 }
 
 function stGrabar(lista) { //array 'Jsonizado'
-  let jsonizado = {
-    ...lista
-  };
-  localStorage.setItem("Usuarios", JSON.stringify(jsonizado));
+  localStorage.setItem("Usuarios", JSON.stringify(lista));
 }
 
 function volcarDeSt() {

@@ -1,16 +1,16 @@
 //USUARIOS
-function Usuario(nombre,pass,foto) {
+function Usuario(nombre, pass, foto) {
   function genId() {
     let res;
     //let listaUsers = new ListaUsuarios(); //inicia vacia 
-        //CAMBIAR POR METODO LENGTH DE LISTA
-    let lengthLista = Object.keys(listaUsers.lista).length;
-    if (lengthLista == 0) { 
+    //CAMBIAR POR METODO LENGTH DE LISTA
+    let lengthLista = listaUsers.lista.length;
+    if (lengthLista == 0) {
       res = 0;
-    }else{
-      res = listaUsers.lista[lengthLista-1].id + 1;
+    } else {
+      res = listaUsers.lista[lengthLista - 1].id + 1;
     }
-    console.log("ID Autogenerado:",res);
+    console.log("ID Autogenerado:", res);
     return res;
   }
 
@@ -22,11 +22,11 @@ function Usuario(nombre,pass,foto) {
 }
 
 function ListaUsuarios() {
-  this.init = stInitUsers; 
+
+  this.init = stInitUsers;
   this.lista = new Array(); //de objs (ME GUARDA OBJETO)
   this.volcar = volcarDeSt;
   this.grabar = stGrabar;
-  this.length = Object.keys(this.lista).length;
 
   this.add = (objUsuario) => {
     this.lista.push(objUsuario); //no hace push xq no es array!
@@ -37,7 +37,7 @@ function ListaUsuarios() {
   //  listaUsers.lista[0].id
   //  return user;
   //}
-  this.mostrar = function (){ //porque no va? //siendo array SI(en INIT)!
+  this.mostrar = function () { //porque no va? //siendo array SI(en INIT)!
     console.table(this.lista);
   }
 }

@@ -14,6 +14,7 @@ if (stVacio) { //quiero usar metodo de obj
   listaUsers.volcar();
 }
 listaUsers.mostrar();
+//listaUsers.length();
 
 
 
