@@ -8,7 +8,7 @@ var regORlogOut = document.getElementById('regORlogOut');
 var listaUsers = new ListaUsuarios(); 
 //!listaUsers.existe
 console.log("Shared, valor de stVacio:",stVacio);
-if (stVacio) { //quiero usar metodo de obj
+if (stVacio) {
   listaUsers.init()
 }else{
   listaUsers.volcar();
@@ -23,25 +23,16 @@ function openLoginRegis(opcion) {
     width: "20em",
     height: '12em',
     left: '-80%'
-    //background-color: red,
-    //opacity: 0.4,
-    //marginLeft: "0.6in",
-    //fontSize: "3em",
-    //borderWidth: "10px"
   }, 500 );
 
 
 function loguear() {
-  console.log("logueando");
-  //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
-
-  //si no esta null, si esta return user
   let user = listaUsers.find(inpNom.value);
-  if(user != null){ //metodo devuelve objeto User si encuentra
+  if(user != null){
     logueado = true;
-    user.logInSesion; 
+    debugger;
+    user.logInSesion(user.id); //no reconoce el metodo
     user.loged = true;
-    
   }else{
     console.log("usuario no encontrado no hecho login");
   }

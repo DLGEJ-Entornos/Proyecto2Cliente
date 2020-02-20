@@ -34,23 +34,25 @@ function ListaUsuarios() {
     this.grabar(this.lista);
   };
 
-  this.find = function(nombre){
+  this.find = function(nombre) {
     let user, encontrado = false;
     let lista = listaUsers.lista;
-    for(let i = 0; i < lista.length && !encontrado; i++) {
-      if (listaUsers.lista[i].nombre == nombre) {
+    for (let i = 0; i < lista.length && !encontrado; i++) {
+      //debugger;
+      if (lista[i].nombre == nombre) {
         encontrado = true;
+        user = lista[i];
       }
     }
-    
+
     if (!encontrado) {
       return null;
-    }else{
+    } else {
       return user;
     }
   }
 
-  this.mostrar = function () { //porque no va? //siendo array SI(en INIT)!
+  this.mostrar = function() { //porque no va? //siendo array SI(en INIT)!
     console.table(this.lista);
   }
 }

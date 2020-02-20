@@ -54,9 +54,9 @@ function modifUser(id, nombre, pass, foto) { //nom,pass allow ''| null
   }
 }
 
-
 //COOKIES
 function cookUserSave(id) {
+  debugger; //don't save
   document.cookie = 'logueado=' + id + ';';
   console.log("Cookie Guardada: ", document.cookie);
 }
