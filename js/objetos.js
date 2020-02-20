@@ -19,6 +19,7 @@ function Usuario(nombre, pass, foto) {
   this.foto = foto;
   this.id = genId();
   this.logInSesion = cookUserSave;
+  this.loged = false;
 }
 
 function ListaUsuarios() {
@@ -29,14 +30,26 @@ function ListaUsuarios() {
   this.grabar = stGrabar;
 
   this.add = (objUsuario) => {
-    this.lista.push(objUsuario); //no hace push xq no es array!
+    this.lista.push(objUsuario);
+    this.grabar(this.lista);
   };
-  //this.find = function(id){
-  //  let user;
-  //  for(let i = 0; i < )
-  //  listaUsers.lista[0].id
-  //  return user;
-  //}
+
+  this.find = function(nombre){
+    let user, encontrado = false;
+    let lista = listaUsers.lista;
+    for(let i = 0; i < lista.length && !encontrado; i++) {
+      if (listaUsers.lista[i].nombre == nombre) {
+        encontrado = true;
+      }
+    }
+    
+    if (!encontrado) {
+      return null;
+    }else{
+      return user;
+    }
+  }
+
   this.mostrar = function () { //porque no va? //siendo array SI(en INIT)!
     console.table(this.lista);
   }

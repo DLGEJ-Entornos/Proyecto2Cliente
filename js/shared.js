@@ -14,8 +14,6 @@ if (stVacio) { //quiero usar metodo de obj
   listaUsers.volcar();
 }
 listaUsers.mostrar();
-//listaUsers.length();
-
 
 
 //HEADER///login///registro////////////////
@@ -34,10 +32,18 @@ function openLoginRegis(opcion) {
 
 
 function loguear() {
-  console.log("logueado");
+  console.log("logueando");
   //si inpNom.value esta en BD, guardar su ID en cookie, logueado TRUE. 
-  if(listaUsers.find(inpNom.value)){ //metodo devuelve objeto User si encuentra
+
+  //si no esta null, si esta return user
+  let user = listaUsers.find(inpNom.value);
+  if(user != null){ //metodo devuelve objeto User si encuentra
+    logueado = true;
+    user.logInSesion; 
+    user.loged = true;
     
+  }else{
+    console.log("usuario no encontrado no hecho login");
   }
 }
 

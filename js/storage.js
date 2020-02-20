@@ -1,10 +1,8 @@
 var listaUsers = null;
-//debugger;
 var stVacio = localStorage.length == 0 ? true : false;
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
-  //debugger;
   let primerUsuario = new Usuario('jon', 'doe',
     '../assets/profilePic/jon.jpg');
 
@@ -18,8 +16,11 @@ function stGrabar(lista) { //array 'Jsonizado'
 }
 
 function volcarDeSt() {
+  //debugger;
   console.log(JSON.parse(localStorage.getItem("Usuarios")));
   listaUsers.lista = JSON.parse(localStorage.getItem("Usuarios"));
+  //listaUsers.lista = Object.entries(usersLS);
+  console.log('Volcado en LISTA: ',listaUsers.lista);
 }
 
 var jsonUsers; //REVISA ESTA FUNC Y ESTA VAR, LO HAGO CON OTROS metodos 
