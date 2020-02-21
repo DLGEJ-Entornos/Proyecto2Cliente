@@ -14,9 +14,9 @@ if (stVacio) {
 }
 listaUsers.mostrar();
 
+//HEADER///login///registro////////////////
 var userLogged = listaUsers.quienLog(); 
 
-//HEADER///login///registro////////////////
   function logOut() {
     cookLogOut();
     listaUsers.killAllSesions();

@@ -76,3 +76,9 @@ function haySesion() {
   let cookies = document.cookie;
   return cookies.includes('logueado') ? true : false
 }
+
+//GENERAL DEV
+function wipe() {
+  cookLogOut();
+  localStorage.clear();
+}

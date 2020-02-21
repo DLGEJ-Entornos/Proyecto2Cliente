@@ -1,8 +1,14 @@
 //USUARIOS
 function Usuario(nombre, pass, foto) {
+  this.nombre = nombre;
+  this.pass = pass;
+  this.foto = foto;
+  this.id = genId();
+  this.logInSesion = cookUserSave;
+  this.loged = false;
+
   function genId() {
     let res;
-
     //CAMBIAR POR METODO LENGTH DE LISTA
     let lengthLista = listaUsers.lista.length;
     if (lengthLista == 0) {
@@ -13,17 +19,9 @@ function Usuario(nombre, pass, foto) {
     console.log("ID Autogenerado:", res);
     return res;
   }
-
-  this.nombre = nombre;
-  this.pass = pass;
-  this.foto = foto;
-  this.id = genId();
-  this.logInSesion = cookUserSave;
-  this.loged = false;
 }
 
 function ListaUsuarios() {
-
   this.init = stInitUsers;
   this.lista = new Array(); //de objs
   this.volcar = volcarDeSt;
@@ -57,14 +55,14 @@ function ListaUsuarios() {
   }
 
   this.quienLog = function() {
-    let usuario = null; 
+    let usuario = null;
     for (const usr of listaUsers.lista) {
       if (usr.loged) {
         usuario = usr;
       }
     }
     if (usuario === null) {
-     console.log('Nadie logueado'); 
+      console.log('Nadie logueado');
     }
     return usuario;
   }
@@ -73,10 +71,27 @@ function ListaUsuarios() {
     console.table(this.lista);
   }
 }
-//HILOS
 
-//GENERAL
-function wipe() {
-  cookLogOut();
-  localStorage.clear();
+//HILOS
+function Hilo(lvl, autorId, tags, titulo, txt) {
+  function genIdHilo() {}
+  this.id = genIdHilo()
+  this.lvl = 0; //default  
+  this.autorId = autorId;
+  this.timeEstampa = Date.now();
+  this.tags = tags; //array
+  this.titulo = titulo;
+  this.txt = txt,
+  this.deleted = false; //recursivo no show hijos
+
+  this.padre = getPadre(); //if lvl0 => NULL.
+  //Arrays de objs
+  this.hermanos = getHerm(); //herm=0 => [].
+  this.hijos = getHijos(); //hijos=0 => [].
 }
+
+function listaHilos() {
+  this.lista = new Array();
+}
+
+
