@@ -2,7 +2,7 @@
 function Usuario(nombre, pass, foto) {
   function genId() {
     let res;
-    //let listaUsers = new ListaUsuarios(); //inicia vacia 
+
     //CAMBIAR POR METODO LENGTH DE LISTA
     let lengthLista = listaUsers.lista.length;
     if (lengthLista == 0) {
@@ -25,9 +25,15 @@ function Usuario(nombre, pass, foto) {
 function ListaUsuarios() {
 
   this.init = stInitUsers;
-  this.lista = new Array(); //de objs (ME GUARDA OBJETO)
+  this.lista = new Array(); //de objs
   this.volcar = volcarDeSt;
   this.grabar = stGrabar;
+
+  this.killAllSesions = () => {
+    for (const user of this.lista) {
+      user.loged = false;
+    }
+  }
 
   this.add = (objUsuario) => {
     this.lista.push(objUsuario);
@@ -38,13 +44,11 @@ function ListaUsuarios() {
     let user, encontrado = false;
     let lista = listaUsers.lista;
     for (let i = 0; i < lista.length && !encontrado; i++) {
-      //debugger;
       if (lista[i].nombre == nombre) {
         encontrado = true;
         user = lista[i];
       }
     }
-
     if (!encontrado) {
       return null;
     } else {
@@ -52,8 +56,14 @@ function ListaUsuarios() {
     }
   }
 
-  this.mostrar = function() { //porque no va? //siendo array SI(en INIT)!
+  this.mostrar = function() {
     console.table(this.lista);
   }
 }
 //HILOS
+
+//GENERAL
+function wipe() {
+  cookLogOut();
+  localStorage.clear();
+}
