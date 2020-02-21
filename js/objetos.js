@@ -56,6 +56,19 @@ function ListaUsuarios() {
     }
   }
 
+  this.quienLog = function() {
+    let usuario = null; 
+    for (const usr of listaUsers.lista) {
+      if (usr.loged) {
+        usuario = usr;
+      }
+    }
+    if (usuario === null) {
+     console.log('Nadie logueado'); 
+    }
+    return usuario;
+  }
+
   this.mostrar = function() {
     console.table(this.lista);
   }

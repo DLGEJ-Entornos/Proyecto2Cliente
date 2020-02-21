@@ -14,14 +14,15 @@ if (stVacio) {
 }
 listaUsers.mostrar();
 
+var userLogged = listaUsers.quienLog(); 
 
 //HEADER///login///registro////////////////
-function logOut() {
-  cookLogOut();
-  listaUsers.killAllSesions();
-  listaUsers.grabar(listaUsers.lista);
-  location.reload();
-}
+  function logOut() {
+    cookLogOut();
+    listaUsers.killAllSesions();
+    listaUsers.grabar(listaUsers.lista);
+    location.reload();
+  }
 
 function openLoginRegis(opcion) {
   var divLogReg = $("#loginReg");
@@ -30,7 +31,6 @@ function openLoginRegis(opcion) {
     height: '12em',
     left: '-80%'
   }, 500);
-
 
   function loguear() { //grabar para persistencia entre paginas?
     let user = listaUsers.find(inpNom.value);
@@ -44,7 +44,6 @@ function openLoginRegis(opcion) {
       console.log("usuario no encontrado no hecho login");
     }
   }
-
 
   function registrar() {
     //VALIDACIÓN!
@@ -105,7 +104,7 @@ if (logueado) {
   nombre.setAttribute('class', 'nav-link');
   nombre.setAttribute('disabled', '');
   nombre.setAttribute('id', 'nomUserTag');
-  nombre.innerText = '<AQUI NOMBRE USER>'; //NOMBRE USER 
+  nombre.innerText = 'Hola '+userLogged.nombre+'!';
   logORnombre.append(nombre);
 
   let logOut = document.createElement('a');
