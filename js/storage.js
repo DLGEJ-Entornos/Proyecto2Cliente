@@ -1,3 +1,4 @@
+/////USUARIOS////
 var listaUsers = null;
 var stVacio = localStorage.length == 0 ? true : false;
 
@@ -7,7 +8,7 @@ function stInitUsers() {
     '../assets/profilePic/jon.jpg');
 
   listaUsers.add(primerUsuario);
-  listaUsers.grabar(listaUsers.lista);
+  listaUsers.grabar(listaUsers.lista); //inneces. ya en add?
 
 }
 
@@ -77,8 +78,29 @@ function haySesion() {
   return cookies.includes('logueado') ? true : false
 }
 
-//GENERAL DEV
+////GENERAL DEV ///
 function wipe() {
   cookLogOut();
   localStorage.clear();
 }
+////////
+
+/////HILOS////
+//COOKIES
+//
+
+function stInitHilos() {
+  listaHilos = new ListaHilosSup();
+  let tags = ['dev','admin','info'];
+  let titulo = 'Primer hilo por defecto';
+  let txt = 'asldfjasldfjsaldff';
+  let primerHilo = new Hilo(0, 0,tags, titulo, txt);
+
+  listaHilos.add(primerHilo);
+  //listaHilos.grabar(listaHilos.lista); //inneces. ya en add?
+}
+
+function stGrabarHilos(lista) {
+  localStorage.setItem("Hilos", JSON.stringify(lista));
+}
+

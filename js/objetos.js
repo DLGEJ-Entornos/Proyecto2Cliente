@@ -74,9 +74,8 @@ function ListaUsuarios() {
 
 //HILOS
 function Hilo(lvl, autorId, tags, titulo, txt) {
-  function genIdHilo() {}
   this.id = genIdHilo()
-  this.lvl = 0; //default  
+  this.lvl = lvl;
   this.autorId = autorId;
   this.timeEstampa = Date.now();
   this.tags = tags; //array
@@ -88,10 +87,20 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   //Arrays de objs
   this.hermanos = getHerm(); //herm=0 => [].
   this.hijos = getHijos(); //hijos=0 => [].
+
+  function genIdHilo() {
+  }
 }
 
-function listaHilos() {
+function ListaHilosSup() {
   this.lista = new Array();
+  this.init = stInitHilos;
+  this.grabar = stGrabarHilos;
+
+  this.add = (objHilo) => {
+    this.lista.push(objHilo);
+    this.grabar(this.lista);
+  };
 }
 
 
