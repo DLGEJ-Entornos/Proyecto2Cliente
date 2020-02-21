@@ -81,26 +81,28 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   this.tags = tags; //array
   this.titulo = titulo;
   this.txt = txt,
-  this.deleted = false; //recursivo no show hijos
+    this.deleted = false; //recursivo no show hijos
 
   this.padre = getPadre(); //if lvl0 => NULL.
   //Arrays de objs
   this.hermanos = getHerm(); //herm=0 => [].
   this.hijos = getHijos(); //hijos=0 => [].
 
-  function genIdHilo() {
-  }
+  function genIdHilo() {}
 }
 
 function ListaHilosSup() {
   this.lista = new Array();
   this.init = stInitHilos;
   this.grabar = stGrabarHilos;
+  this.volcar = volcarHilosDeSt;
 
-  this.add = (objHilo) => {
+  this.add = (objHilo) => { //func poliv (add para distintos niveles)
     this.lista.push(objHilo);
     this.grabar(this.lista);
   };
+
+  this.mostrar = function() {
+    console.table(this.lista);
+  }
 }
-
-

@@ -1,6 +1,9 @@
 /////USUARIOS////
 var listaUsers = null;
 var stVacio = localStorage.length == 0 ? true : false;
+var stNoHilos = function() {
+  localStorage.getItem('Hilos') === null ? true : false;
+}
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
@@ -24,11 +27,11 @@ function volcarDeSt() { //asumimos lista= array vacio
   let arrLista = [];
   for (const obj of arrObjGenericos) {
     let usuario = new Usuario(obj.nombre, obj.pass, obj.foto);
-    usuario.id = obj.id;//no puede autogenerar, lista de ListaUsers vacia
+    usuario.id = obj.id; //no puede autogenerar, lista de ListaUsers vacia
     usuario.loged = obj.loged;
     arrLista.push(usuario);
   }
-    listaUsers.lista = arrLista;
+  listaUsers.lista = arrLista;
 }
 
 var jsonUsers; //REVISA ESTA FUNC Y ESTA VAR, LO HAGO CON OTROS metodos 
@@ -86,15 +89,16 @@ function wipe() {
 ////////
 
 /////HILOS////
+var listaHilos = null;
 //COOKIES
 //
 
 function stInitHilos() {
   listaHilos = new ListaHilosSup();
-  let tags = ['dev','admin','info'];
+  let tags = ['dev', 'admin', 'info'];
   let titulo = 'Primer hilo por defecto';
   let txt = 'asldfjasldfjsaldff';
-  let primerHilo = new Hilo(0, 0,tags, titulo, txt);
+  let primerHilo = new Hilo(0, 0, tags, titulo, txt);
 
   listaHilos.add(primerHilo);
   //listaHilos.grabar(listaHilos.lista); //inneces. ya en add?
@@ -104,3 +108,17 @@ function stGrabarHilos(lista) {
   localStorage.setItem("Hilos", JSON.stringify(lista));
 }
 
+function volcarHilosDeSt() {
+  console.log(JSON.parse(localStorage.getItem("Hilos")));
+
+  let arrObjGenericos = JSON.parse(localStorage.getItem("Hilos"));
+  let arrLista = [];
+  for (const obj of arrObjGenericos) {
+    let hilo = new Hilo(obj.lvl, obj.autorId, obj.tags, obj.titulo, obj.txt);
+    hilo.id = obj.id; //no puede autogenerar?, lista de ListaUsers vacia
+    hilo.deleted = obj.deleted;
+    hilo.timeEstampa = obj.timeEstampa;
+    arrLista.push(hilo);
+  }
+  listaHilos.lista = arrLista;
+}
