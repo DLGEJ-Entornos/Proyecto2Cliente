@@ -1,9 +1,10 @@
-- Organiza css
-- Sistema de Registro (con uri foto?) o luego mod User i add foto
-- CREA DE UNA VEZ EL LOGIN!
-    - Cookie.
-      * No reconoce en shared.js 'user.logInSesion'
-      * En cookUserSave en storage.js no guarda cookie
-    - Mostar User loged arriba y opcion LogOut
-
+- Crea y Organiza css
+- Poder modif user con foto 
 - DOM básico HILOS(ver whiteboards) 
+- Interacción total con Hilos de lvl 1
+  - Init Hilos lvl1 hecho.
+    - Haz metodos de get hermanos e hijos
+    - Haz render basico del dom para crear/del H.lvl1
+- Reqs ideas:
+  - regExp y Keyboard ev (validacion: pass,titulo,txt,tags)
+  - ev Raton (hover crear respuesta,add tags)
