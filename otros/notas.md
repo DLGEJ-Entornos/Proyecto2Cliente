@@ -43,8 +43,6 @@ NOTAS PROYECTO 2 CLIENTE
    *Tags en hilos
 
 -'Frontend'
-   * Inicio (LandingPage)
-      *PopUp -IniciarSesion,Registrar
    * Mis datos
    * Hilos
       *HILO
@@ -59,7 +57,6 @@ https://www.competa.com/blog/storing-javascript-object-localstorage/
   * Solucion: graba estado lista users (con login user) a LS
 - Var logueado = false; 
 - COOKIE LOGING PERMANECE!
-
 
 
 ## DECLARACIÓN RECUPERACION DE HILOS CON VARIOS NIVELES FUNCIONAL: 
@@ -98,4 +95,9 @@ localStorage.setItem("ArrSup", JSON.stringify(arrSup));
 console.log("recuperado arrSup:");
 console.log(JSON.parse(localStorage.getItem("ArrSup")));
 ##
+
+
+##Notas sucias
+Al crear hilo:
+* INPUTS: Titulo,TXT,TAGS
 

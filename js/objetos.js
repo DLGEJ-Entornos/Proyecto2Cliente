@@ -85,8 +85,8 @@ function ListaUsuarios() {
 
 //HILOS
 function Hilo(lvl, autorId, tags, titulo, txt) {
-  this.id = genIdHilo()
   this.lvl = lvl;
+  this.id = genIdHilo()
   this.autorId = autorId;
   this.timeEstampa = Date.now();
   this.tags = tags; //array
@@ -98,12 +98,16 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   //this.hijos = new Array();
 
   function genIdHilo() {
+    debugger;
     let lengthLista = listaHilos.lista.length;
     if (lengthLista == 0) { //en init
       return '0.0';
-    } else if (this.lvl == 0) { //crear nuevo hilo (no respuesta)
+    } else if (lvl == 0) { //crear nuevo hilo (no respuesta)
       let lastID = listaHilos.lista[lengthLista - 1].id;
-      let newID = '0.' + lastID.substr(-1)+1;
+      let lastIDcola = lastID.substr(-1);
+      //let newID = '0.' + (parseInt(lastIDcola)+1);
+      lastIDcola++;
+      let newID = '0.' + lastIDcola;
       return newID; 
     }
   }

@@ -1,0 +1,19 @@
+article{
+    border: 1px solid blue;
+    margin: 1em;
+}
+.lvl1{
+    border: 1px solid green;
+    margin: 1em;
+    width: 70%;
+}
+.lvl2{
+    border: 1px solid red;
+    margin: 1em;
+    width: 50%;
+}
+.btn-success{
+    width: min-content;
+    margin: 0 auto;
+    margin-top: 1em;
+}

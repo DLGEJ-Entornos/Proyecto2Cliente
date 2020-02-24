@@ -7,9 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Proyecto 2 CLIENTE - FORO</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/shared.css">
-  <link rel="stylesheet" href="css/landing.css">
-  <link rel="stylesheet" href="css/hilos.css">
+  <link rel="stylesheet" href="./css/shared.css">
+  <link rel="stylesheet" href="./css/landing.css">
+  <link rel="stylesheet" href="./css/hilos.css">
 </head>
 
 <body>
@@ -27,14 +27,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="hilos.html">Hilos</a>
               </li>
-              <li  class="nav-item">
+              <li class="nav-item">
                 <a id="miAreaLink" class="nav-link disabled" href="miArea.html">Mi Área</a>
               </li>
             </ul>
           </div>
         </nav>
         <nav id="landingTools" class="navbar navbar-expand-lg navbar-light bg-light">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -53,9 +54,24 @@
 
     <div class="principal row">
       <main class="col-sm-12 bg-white">
-        
-          <h1>HILOS</h1> <br>
-            <button class="text-warning" onclick="crearHiloSup()">CREAR HILO</button> 
+
+        <h1>HILOS</h1> <br>
+        <p>
+          <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+            aria-expanded="false" aria-controls="multiCollapseExample1">CREAR HILO</a>
+        </p>
+        <div class="row">
+          <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+              <div class="card card-body input-group mb-3">
+                <input id="tbTitulo" type="text" class="form-control" placeholder="Título" aria-describedby="basic-addon1">
+                <textarea id="tbTxt" class="form-control" placeholder="Texto " aria-label="With textarea" rows="5"></textarea>
+                <button type="button" onclick="crearHiloSup()" class="btn btn-success">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <section>
           <!--article id="0.1" class="bg-primary lvl0">
             <h2>HILO LVL0 dinamico</h2> <b>ANA</b>
@@ -82,7 +98,7 @@
   <script src="./js/shared.js"></script>
   <script src="./js/hilos.js"></script>
 
-    
+
 </body>
 
 </html>

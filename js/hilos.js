@@ -32,7 +32,7 @@ function renderHilos() {
     //debugger;
     ch0 = document.createElement("article"); 
     ch0.setAttribute('id',hiloL0.id);
-    ch0.setAttribute('class',hiloL0.lvl);
+    ch0.setAttribute('class','lvl'+hiloL0.lvl);
     let titulo = $("<h2></h2>").text(hiloL0.titulo);
     let autor = $("<b></b>").text(listaUsers.getName(hiloL0.autorId));
     let texto = $("<p></p>").text(hiloL0.txt);
@@ -42,5 +42,14 @@ function renderHilos() {
     ch0.append(titulo[0],autor[0],texto[0],boton[0],span[0],br[0]);
   });
   cHS.append(ch0);
+}
 
+function crearHiloSup(){ //al accionar onclick
+  let titulo = document.getElementById('tbTitulo').value;
+  let txt = document.getElementById('tbTxt').value;
+  userLogged.id
+  let newHilo = new Hilo(0,userLogged.id,tags=null,titulo,txt);
+  listaHilos.add(newHilo);
+
+  renderHilos();
 }
