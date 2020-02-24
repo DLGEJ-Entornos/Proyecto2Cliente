@@ -95,7 +95,7 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   this.deleted = false; //recursivo no show hijos
   this.htmlTag = null; //el obj Instanciado del dom que guarda su hilo
   this.padre = getPadre();
-  //this.hijos = new Array();
+  this.hijos = new Array();
 
   function genIdHilo() {
     //debugger;
