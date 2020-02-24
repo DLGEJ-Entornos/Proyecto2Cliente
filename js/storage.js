@@ -114,12 +114,24 @@ function volcarHilosDeSt() {
 
   let arrObjGenericos = JSON.parse(localStorage.getItem("Hilos"));
   let arrLista = [];
+
   for (const obj of arrObjGenericos) {
     let hilo = new Hilo(obj.lvl, obj.autorId, obj.tags, obj.titulo, obj.txt);
     hilo.id = obj.id; //no puede autogenerar?, lista de ListaUsers vacia
     hilo.timeEstampa = obj.timeEstampa;
     hilo.deleted = obj.deleted;
     hilo.htmlTag = obj.htmlTag;
+
+    var arrHijos = [];
+    for (let i = 0; i < obj.hijos.length; i++) {
+      let res = obj.hijos[i]; //respuesta
+      let subHilo = new Hilo(res.lvl, res.autorId, res.tags, res.titulo, res.txt);
+      subHilo.id = res.id; //no puede autogenerar?, lista de ListaUsers vacia
+      subHilo.timeEstampa = res.timeEstampa;
+      subHilo.deleted = res.deleted;
+      arrHijos.push(subHilo);
+    }
+    hilo.hijos = arrHijos;
     arrLista.push(hilo);
   }
   listaHilos.lista = arrLista;

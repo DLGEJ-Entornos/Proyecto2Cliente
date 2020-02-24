@@ -59,10 +59,8 @@ function renderHilos() {
       let br = $("<br></br>");
       ch1.append(titulo[0], autor[0], texto[0], br[0],);
       cH1.append(ch1);
-
     })
     span[0].append(cH1);
-
   });
 
 }
