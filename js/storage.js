@@ -78,14 +78,15 @@ function haySesion() {
   return cookies.includes('logueado') ? true : false
 }
 
-////GENERAL DEV ///
+//// DEV TOOLS ///
 function wipe() {
   cookLogOut();
   localStorage.clear();
 }
-////////
 
-/////HILOS////
+/////////////////////////////////////////
+///////////////// HILOS ////////////////
+/////////////////////////////////////////
 var listaHilos = null;
 var stNoHilos = function() {
   return localStorage.getItem('Hilos') === null ? true : false;
@@ -116,8 +117,9 @@ function volcarHilosDeSt() {
   for (const obj of arrObjGenericos) {
     let hilo = new Hilo(obj.lvl, obj.autorId, obj.tags, obj.titulo, obj.txt);
     hilo.id = obj.id; //no puede autogenerar?, lista de ListaUsers vacia
-    hilo.deleted = obj.deleted;
     hilo.timeEstampa = obj.timeEstampa;
+    hilo.deleted = obj.deleted;
+    hilo.htmlTag = obj.htmlTag;
     arrLista.push(hilo);
   }
   listaHilos.lista = arrLista;

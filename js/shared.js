@@ -1,26 +1,31 @@
 //debugger;
+//Comprobaciones de sesion al inicio
 var logueado = haySesion();
-console.log("valor var logueado en shared: " + logueado);
-// DECLARAR SIN inicializar? cogeran values null?
+console.log("VAR logueado en shared: " + logueado);
+var userLogged;
+
+//DOM elements para Header
 var miAreaLink = document.getElementById('miAreaLink');
 var logORnombre = document.getElementById('logORnombre');
 var regORlogOut = document.getElementById('regORlogOut');
-//
 
 var listaUsers = new ListaUsuarios();
-console.log("Shared, valor de stVacio:", stVacio);
+console.log("Shared, valor de stVacio:", stVacio); //check localstorage
+
+//RUTINA INICIO en función de los datos almacenados
 if (stVacio) {
   listaUsers.init();
 } else {
-  console.log("volcando");
+  console.log("volcando users");
   listaUsers.volcar();
   //renderHeader();
   //logOut('noRend');
 }
-listaUsers.mostrar();
+listaUsers.mostrar(); //info obj creados
+//////////////
 
-//HEADER///login///registro////////////////
-var userLogged = listaUsers.quienLog();
+
+//HEADER// Tareas para renderizar el login , registro ...//////
 renderHeader();
 
 function logOut(modo) {
@@ -28,9 +33,6 @@ function logOut(modo) {
   listaUsers.killAllSesions();
   listaUsers.grabar(listaUsers.lista);
   renderHeader()
-  //if (modo != 'noRend') {
-  //  renderHeader();
-  //}
 }
 
 function openLoginRegis(selector) {
@@ -41,8 +43,7 @@ function openLoginRegis(selector) {
     left: '-80%'
   }, 500);
 
-  function loguear() { //grabar para persistencia entre paginas?
-    //debugger;
+  function loguear() {
     let user = listaUsers.find(inpNom.value);
     if (user != null) {
       listaUsers.killAllSesions();
@@ -50,10 +51,10 @@ function openLoginRegis(selector) {
       user.logInSesion(user.id); //GUARDA COOKIE
       listaUsers.grabar(listaUsers.lista);
       renderHeader();
-      //location.reload();
     } else {
       console.log("usuario no encontrado no hecho login");
     }
+    salir();
   }
 
   function registrar() {
@@ -67,6 +68,7 @@ function openLoginRegis(selector) {
     listaUsers.grabar(listaUsers.lista);
     renderHeader();
     //location.reload();
+    salir();
   }
 
   function salir() {
@@ -106,11 +108,11 @@ function openLoginRegis(selector) {
 
 
 // MODIFICACIÓN DEL HEADER if LOGUEADO
-//en func para hacer a cada refresco de pagina?
-//comprueba cookies
 function renderHeader() {
-  logueado = haySesion();
+  logueado = haySesion(); //comprueba cookies
   userLogged = listaUsers.quienLog();
+
+  //Limpieza de contenedores antes de crear para no duplicar 
   $('#nomUserTag').remove();
   $('#logOut').remove();
   $('#login').remove();

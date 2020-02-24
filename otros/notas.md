@@ -59,3 +59,43 @@ https://www.competa.com/blog/storing-javascript-object-localstorage/
   * Solucion: graba estado lista users (con login user) a LS
 - Var logueado = false; 
 - COOKIE LOGING PERMANECE!
+
+
+
+## DECLARACIÓN RECUPERACION DE HILOS CON VARIOS NIVELES FUNCIONAL: 
+
+arrSup = [
+  {
+    data: 'lvl0',
+    hijos:[
+      {
+        data: 'lvl1',
+        hijos:[
+          {
+            data:'lvl2'
+          }
+          ]
+      }
+      ]
+  },
+  {
+    data: '2ºlvl0',
+    hijos:[
+      {
+        data: '2ºlvl1',
+        hijos:[
+      		{
+      			data:'lvl2'
+      		}
+          ]
+      }
+      ]
+  }
+  ];
+console.table(arrSup);
+console.log(arrSup);
+localStorage.setItem("ArrSup", JSON.stringify(arrSup));
+console.log("recuperado arrSup:");
+console.log(JSON.parse(localStorage.getItem("ArrSup")));
+##
+

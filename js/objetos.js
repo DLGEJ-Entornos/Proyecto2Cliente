@@ -66,6 +66,17 @@ function ListaUsuarios() {
     }
     return usuario;
   }
+  this.getName = function(idUser) {
+
+    let lista = listaUsers.lista;
+    for (let i = 0; i < lista.length; i++) {
+      let user = lista[i];
+      if (user.id == idUser) {
+        return user.nombre;
+      }
+    }
+    return '';
+  }
 
   this.mostrar = function() {
     console.table(this.lista);
@@ -82,19 +93,23 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   this.titulo = titulo;
   this.txt = txt;
   this.deleted = false; //recursivo no show hijos
+  this.htmlTag = null; //el obj Instanciado del dom que guarda su hilo
   this.padre = getPadre();
+  //this.hijos = new Array();
 
   function genIdHilo() {
     let lengthLista = listaHilos.lista.length;
-    if (lengthLista == 0) {
-      return 0;
-    } else if (this.lvl == 0) {
-      return listaHilos.lista[lengthLista - 1].id + 1;
+    if (lengthLista == 0) { //en init
+      return '0.0';
+    } else if (this.lvl == 0) { //crear nuevo hilo (no respuesta)
+      let lastID = listaHilos.lista[lengthLista - 1].id;
+      let newID = '0.' + lastID.substr(-1)+1;
+      return newID; 
     }
   }
 
   function getPadre() {
-    debugger;
+    //debugger;
     console.log('lvl en getPadre: ', lvl);
     return lvl == 0 ? null : undefined
   }

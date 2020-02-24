@@ -16,3 +16,9 @@
 ##Reqs ideas:
   - regExp y Keyboard ev (validacion: pass,titulo,txt,tags)
   - ev Raton (hover crear respuesta,add tags)
+
+
+- Crear dom hilos. renderHilos()
+  1. cojo tag Section le hago append article(contenedor padre hilos lvl0) TAREA FINAL
+    1.1 A article le lleno con los datos del hilo (h2,p, img...) +Button(RESPONDER) + span (fin de data, start HIJOS)
+    1.2  
