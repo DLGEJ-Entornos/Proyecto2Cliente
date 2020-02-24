@@ -1,9 +1,6 @@
 /////USUARIOS////
 var listaUsers = null;
 var stVacio = localStorage.length == 0 ? true : false;
-var stNoHilos = function() {
-  localStorage.getItem('Hilos') === null ? true : false;
-}
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
@@ -90,11 +87,14 @@ function wipe() {
 
 /////HILOS////
 var listaHilos = null;
+var stNoHilos = function() {
+  return localStorage.getItem('Hilos') === null ? true : false;
+}
 //COOKIES
 //
 
 function stInitHilos() {
-  listaHilos = new ListaHilosSup();
+  listaHilos = new ListaHilosSup(); 
   let tags = ['dev', 'admin', 'info'];
   let titulo = 'Primer hilo por defecto';
   let txt = 'asldfjasldfjsaldff';

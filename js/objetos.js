@@ -80,15 +80,29 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   this.timeEstampa = Date.now();
   this.tags = tags; //array
   this.titulo = titulo;
-  this.txt = txt,
-    this.deleted = false; //recursivo no show hijos
+  this.txt = txt;
+  this.deleted = false; //recursivo no show hijos
+  this.padre = getPadre();
 
-  this.padre = getPadre(); //if lvl0 => NULL.
+  function genIdHilo() {
+    let lengthLista = listaHilos.lista.length;
+    if (lengthLista == 0) {
+      return 0;
+    } else if (this.lvl == 0) {
+      return listaHilos.lista[lengthLista - 1].id + 1;
+    }
+  }
+
+  function getPadre() {
+    debugger;
+    console.log('lvl en getPadre: ', lvl);
+    return lvl == 0 ? null : undefined
+  }
+
   //Arrays de objs
-  this.hermanos = getHerm(); //herm=0 => [].
-  this.hijos = getHijos(); //hijos=0 => [].
+  //this.hermanos = getHerm(); //herm=0 => [].
+  //this.hijos = getHijos(); //hijos=0 => [].
 
-  function genIdHilo() {}
 }
 
 function ListaHilosSup() {

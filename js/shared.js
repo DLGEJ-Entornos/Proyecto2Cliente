@@ -1,4 +1,6 @@
+//debugger;
 var logueado = haySesion();
+console.log("valor var logueado en shared: " + logueado);
 // DECLARAR SIN inicializar? cogeran values null?
 var miAreaLink = document.getElementById('miAreaLink');
 var logORnombre = document.getElementById('logORnombre');
@@ -8,23 +10,30 @@ var regORlogOut = document.getElementById('regORlogOut');
 var listaUsers = new ListaUsuarios();
 console.log("Shared, valor de stVacio:", stVacio);
 if (stVacio) {
-  listaUsers.init()
+  listaUsers.init();
 } else {
+  console.log("volcando");
   listaUsers.volcar();
+  //renderHeader();
+  //logOut('noRend');
 }
 listaUsers.mostrar();
 
 //HEADER///login///registro////////////////
-var userLogged = listaUsers.quienLog(); 
+var userLogged = listaUsers.quienLog();
+renderHeader();
 
-  function logOut() {
-    cookLogOut();
-    listaUsers.killAllSesions();
-    listaUsers.grabar(listaUsers.lista);
-    location.reload();
-  }
+function logOut(modo) {
+  cookLogOut();
+  listaUsers.killAllSesions();
+  listaUsers.grabar(listaUsers.lista);
+  renderHeader()
+  //if (modo != 'noRend') {
+  //  renderHeader();
+  //}
+}
 
-function openLoginRegis(opcion) {
+function openLoginRegis(selector) {
   var divLogReg = $("#loginReg");
   divLogReg.animate({
     width: "20em",
@@ -33,13 +42,15 @@ function openLoginRegis(opcion) {
   }, 500);
 
   function loguear() { //grabar para persistencia entre paginas?
+    //debugger;
     let user = listaUsers.find(inpNom.value);
     if (user != null) {
       listaUsers.killAllSesions();
       user.loged = true;
       user.logInSesion(user.id); //GUARDA COOKIE
       listaUsers.grabar(listaUsers.lista);
-      location.reload();
+      renderHeader();
+      //location.reload();
     } else {
       console.log("usuario no encontrado no hecho login");
     }
@@ -54,7 +65,8 @@ function openLoginRegis(opcion) {
     listaUsers.add(newUser);
     newUser.logInSesion(newUser.id); //GUARDA COOKIE
     listaUsers.grabar(listaUsers.lista);
-    location.reload();
+    renderHeader();
+    //location.reload();
   }
 
   function salir() {
@@ -88,7 +100,7 @@ function openLoginRegis(opcion) {
     divLogReg.append(inpNom, inpPass, br, confirm, exit);
     exit.onclick = salir;
   }
-  opcion == 'log' ? create('log') : create('regis');
+  selector == 'log' ? create('log') : create('regis');
 }
 
 
@@ -96,41 +108,54 @@ function openLoginRegis(opcion) {
 // MODIFICACIÓN DEL HEADER if LOGUEADO
 //en func para hacer a cada refresco de pagina?
 //comprueba cookies
-if (logueado) {
-  miAreaLink.setAttribute('class', 'nav-link');
+function renderHeader() {
+  logueado = haySesion();
+  userLogged = listaUsers.quienLog();
+  $('#nomUserTag').remove();
+  $('#logOut').remove();
+  $('#login').remove();
+  $('#registro').remove();
+   
+  if (logueado) {
+    miAreaLink.setAttribute('class', 'nav-link');
 
 
-  let nombre = document.createElement('a');
-  nombre.setAttribute('class', 'nav-link');
-  nombre.setAttribute('disabled', '');
-  nombre.setAttribute('id', 'nomUserTag');
-  nombre.innerText = 'Hola '+userLogged.nombre+'!';
-  logORnombre.append(nombre);
+    let nombre = document.createElement('a');
+    nombre.setAttribute('class', 'nav-link');
+    nombre.setAttribute('disabled', '');
+    nombre.setAttribute('id', 'nomUserTag');
+    nombre.innerText = 'Hola ' + userLogged.nombre + '!';
+    logORnombre.append(nombre);
 
-  let logOut = document.createElement('a');
-  logOut.setAttribute('class', 'nav-link');
-  logOut.setAttribute('onclick', 'logOut()');
-  logOut.innerText = 'Cerrar Sesión';
-  regORlogOut.append(logOut);
+    let logOut = document.createElement('a');
+    logOut.setAttribute('class', 'nav-link');
+    logOut.setAttribute('id', 'logOut');
+    logOut.setAttribute('onclick', 'logOut()');
+    logOut.innerText = 'Cerrar Sesión';
+    regORlogOut.append(logOut);
 
-} else {
-  miAreaLink.setAttribute('class', 'nav-link disabled');
+  } else {
+    miAreaLink.setAttribute('class', 'nav-link disabled');
 
-  let login = document.createElement('a');
-  login.setAttribute('class', 'nav-link');
-  login.setAttribute('onclick', 'openLoginRegis("log")');
-  login.innerText = 'Login';
-  let span = document.createElement('span');
-  span.setAttribute('class', 'sr-only');
-  span.innerText = '(current)';
-  login.append(span);
-  logORnombre.append(login);
+    let login = document.createElement('a');
+    login.setAttribute('class', 'nav-link');
+    login.setAttribute('onclick', 'openLoginRegis("log")');
+    login.setAttribute('id', 'login');
+    login.innerText = 'Login';
+    let span = document.createElement('span');
+    span.setAttribute('class', 'sr-only');
+    span.innerText = '(current)';
+    login.append(span);
+    logORnombre.append(login);
 
-  let registro = document.createElement('a');
-  registro.setAttribute('class', 'nav-link');
-  registro.setAttribute('onclick', 'openLoginRegis("regis")');
-  registro.innerText = 'Regístrate';
-  regORlogOut.append(registro);
+    let registro = document.createElement('a');
+    registro.setAttribute('class', 'nav-link');
+    registro.setAttribute('onclick', 'openLoginRegis("regis")');
+    registro.setAttribute('id', 'registro');
+    registro.innerText = 'Regístrate';
+    regORlogOut.append(registro);
+  }
+  console.log('header renderizado');
+  listaUsers.mostrar();
 }
-
 ////////////////////////////////////////////
