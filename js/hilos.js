@@ -6,6 +6,7 @@ if (stNoHilos()) {
   listaHilos.init()
 } else {
   console.log('en volcado d hilo');
+  //debugger;
   listaHilos.volcar();
 }
 listaHilos.mostrar(); //info obj hilos creados
@@ -41,9 +42,8 @@ function renderHilos() {
     let span = $("<span></span>");
     let br = $("<br></br>");
     ch0.append(titulo[0],autor[0],texto[0],boton,span[0],br[0]);
-    //debugger;
+    cHS.append(ch0);
   });
-  cHS.append(ch0);
 }
 
 function crearHiloSup(){ //al accionar onclick

@@ -7,6 +7,7 @@
     - Haz metodos de get hermanos e hijos
     - Haz render basico del dom para crear/del H.lvl1
 - En lugar de reload pag para actualizar sesion RENDER OK!
+- Button poder borrar hilo(recursividad hijos)
 
 
 ##BUGS:
