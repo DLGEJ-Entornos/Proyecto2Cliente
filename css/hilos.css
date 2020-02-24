@@ -12,7 +12,7 @@ article{
     margin: 1em;
     width: 50%;
 }
-.btn-success{
+.btn-success, .btn-info{
     width: min-content;
     margin: 0 auto;
     margin-top: 1em;

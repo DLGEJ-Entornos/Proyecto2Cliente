@@ -98,7 +98,7 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   //this.hijos = new Array();
 
   function genIdHilo() {
-    debugger;
+    //debugger;
     let lengthLista = listaHilos.lista.length;
     if (lengthLista == 0) { //en init
       return '0.0';
