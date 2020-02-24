@@ -16,19 +16,20 @@ renderHilos();
 
 function renderHilos() {
   /*
-    Contenedor HILOS superiores = <section> : cHS
+    Contenedor HILOS superiores = <section> : cHS *ESTATICO EN DOM*
     Cont hilo level 0 = <article> : ch0
-           - RESPUESTAS - 
-    Cont HILOS level 1 = <div class(H1)> : cH1
-    Cont hilo level 1 = <div class(h1)> : ch1
-    Cont HILOS level 2 = <div class(H2)> : cH2
-    Cont hilo level 2 = <div class(h2)> : ch2
+      - RESPUESTAS - 
+      Cont HILOS level 1 = <div class(H1)> : cH1
+      Cont hilo level 1 = <div class(h1)> : ch1
+        Cont HILOS level 2 = <div class(H2)> : cH2
+        Cont hilo level 2 = <div class(h2)> : ch2
   */ 
+
+  // Creando Hilos level0 (articles) (ch0) ////////////////
   var cHS = $('section')[0];
   var listaHS = listaHilos.lista;
-  
-  // Creando Hilos level0 (articles) (ch0)
   var ch0;
+
   listaHS.forEach(hiloL0 => {
     //debugger;
     ch0 = document.createElement("article"); 
@@ -44,6 +45,9 @@ function renderHilos() {
     ch0.append(titulo[0],autor[0],texto[0],boton,span[0],br[0]);
     cHS.append(ch0);
   });
+//////////////////////////////////////////////////////
+  // Creando Hilos level1 (div) (cH0) ////////////////
+
 }
 
 function crearHiloSup(){ //al accionar onclick
@@ -52,15 +56,24 @@ function crearHiloSup(){ //al accionar onclick
   userLogged.id
   let newHilo = new Hilo(0,userLogged.id,tags=null,titulo,txt);
   listaHilos.add(newHilo);
-
   renderHilos();
+}
+function crearRespuesta(lvlHiloID) {
+  let titulo = document.getElementById('tbTitulo').value;
+  let txt = document.getElementById('tbTxt').value;
+  userLogged.id
+  let newHilo = new Hilo(0,userLogged.id,tags=null,titulo,txt);
+  listaHilos.add(newHilo);
+  renderHilos();
+  
 }
 
 function crearBtnColapsable(level,hiloID) {
+    let hiloIDclean = hiloID.replace(/\./g, '-');
     let link = document.createElement("a");
     link.setAttribute('class',"btn btn-primary");
     link.setAttribute('data-toggle',"collapse");
-    link.setAttribute('href',"#multiCollapse"+hiloID.replace(/\./g, '-')); //REGEXP USADA!
+    link.setAttribute('href',"#multiCollapse"+hiloIDclean); //REGEXP USADA!
     link.setAttribute('role',"button");
     link.setAttribute('aria-expanded',"false");
     //link.setAttribute('aria-controls',"multiCollapseExample1");
@@ -76,20 +89,20 @@ function crearBtnColapsable(level,hiloID) {
     divs[0].setAttribute('class', "row"); 
     divs[1].setAttribute('class', "col"); 
     divs[2].setAttribute('class', "collapse multi-collapse"); 
-    divs[2].setAttribute('id', "multiCollapse"+hiloID.replace(/\./g, '-')); 
+    divs[2].setAttribute('id', "multiCollapse"+hiloIDclean); 
     divs[3].setAttribute('class', "card card-body input-group mb-3"); 
       //dentro de div3
       let input = $("<input></input>");
-      input[0].setAttribute('class', "tbTitulo"+level+ " class form-control"); 
+      input[0].setAttribute('class', "tbTitulo"+level+'-'+hiloIDclean+" form-control"); 
       input[0].setAttribute('type', "text"); 
       input[0].setAttribute('placeholder', "Título"); 
       let textA = $("<textarea></textarea>");
-      textA[0].setAttribute('class', "tbTxt"+level+ " form-control"); 
+      textA[0].setAttribute('class', "tbTxt"+level+'-'+hiloIDclean+" form-control"); 
       textA[0].setAttribute('placeholder', "Texto"); 
       textA[0].setAttribute('rows', "4"); 
       let boton = $("<button></button>");
-      boton[0].setAttribute('class', "btnCreaResp"+level+ " btn btn-info"); 
-      boton[0].setAttribute('onclick', "crearRespuestaLvl"+level+"()"); 
+      boton[0].setAttribute('class', "btnCreaResp"+level+'-'+hiloIDclean+ " btn btn-info"); 
+      boton[0].setAttribute('onclick', "crearRespuesta("+level+'-'+hiloIDclean+")"); //VINCULACION 
       boton.text("Enviar"); 
 
       //debugger;
@@ -102,3 +115,4 @@ function crearBtnColapsable(level,hiloID) {
       divTodo.append(p[0],divs[0]);
       return divTodo;
 }
+
