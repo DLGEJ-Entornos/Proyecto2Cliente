@@ -3,9 +3,9 @@ NOTAS PROYECTO 2 CLIENTE
 
 ##REQUISITOS:
 
-- Eventos Raton (1 onclick + otros 2) [Onclick OK!] 
+- Eventos Raton (1 onclick + otros 2) TODOS //++ hilos.js 
 - Eventos Teclado para validar (2 min)
-- 3 RegExp
+- 3 RegExp (1 //++ hilos.js fun crearBtnColapsable)
 - Uso de cookies OK!
 - Creación dinámica del DOM [OK!]
 - Carpeta ./js con scripts  [OK!]

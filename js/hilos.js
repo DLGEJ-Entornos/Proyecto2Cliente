@@ -90,7 +90,7 @@ function crearRespuesta(lvlHiloID) { //lvl1
 }
 
 function crearBtnColapsable(level, hiloID) {
-  let hiloIDclean = hiloID.replace(/\./g, '-');//REGEXP USADA!
+  let hiloIDclean = hiloID.replace(/\./g, '-');//++ REGEXP 1 ++// 
   let link = document.createElement("a");
   link.setAttribute('class', "btn btn-primary");
   link.setAttribute('data-toggle', "collapse");
@@ -126,7 +126,10 @@ function crearBtnColapsable(level, hiloID) {
   textA[0].setAttribute('rows', "4");
   let boton = $("<button></button>");
   boton[0].setAttribute('class', "btnCreaResp" + idRespuesta + " btn btn-info");
+  //++ EVENTOS DE RATON 1,2 Y 3 ++//
   boton[0].setAttribute('onclick', "crearRespuesta('" + idRespuesta + "')"); //VINCULACION 
+  boton[0].addEventListener("mouseover",alertarSesion);
+  boton[0].addEventListener("mouseout",quitAlertarSesion);
   boton.text("Enviar");
 
   //debugger;
@@ -140,3 +143,35 @@ function crearBtnColapsable(level, hiloID) {
   return divTodo;
 }
 
+
+////MISCELÁNEA
+
+var btnsEnviar = document.getElementsByClassName('btn-info');
+$('.btn-success').hover(alertarSesion,quitAlertarSesion);
+
+function alertarSesion() {
+
+  if (userLogged === null) {
+    $('.btn-success').css("background-color","tomato");
+    $('.btn-success')[0].disabled = true;
+
+    Array.from(btnsEnviar).map(b =>{b.disabled = true;});
+    Array.from(btnsEnviar).forEach(btn => {
+      btn.style = "background-color:tomato";
+    })
+  
+    setTimeout(function(){
+     alert("Loguéate primero!"); 
+    },300);
+  }
+}
+function quitAlertarSesion() {
+
+  $('.btn-success').css("background-color","rgb(34, 141, 58)");
+  $('.btn-success')[0].disabled = false;
+
+  Array.from(btnsEnviar).map(b =>{b.disabled = false;});
+  Array.from(btnsEnviar).forEach(btn => {
+    btn.style = "background-color:rgb(21, 146, 166);";
+  })
+}

@@ -4,7 +4,7 @@ var stVacio = localStorage.length == 0 ? true : false;
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
-  let primerUsuario = new Usuario('jon', 'doe',
+  let primerUsuario = new Usuario('Jon', 'doe',
     '../assets/profilePic/jon.jpg');
 
   listaUsers.add(primerUsuario);
@@ -97,8 +97,8 @@ var stNoHilos = function() {
 function stInitHilos() {
   listaHilos = new ListaHilosSup(); 
   let tags = ['dev', 'admin', 'info'];
-  let titulo = 'Primer hilo por defecto';
-  let txt = 'asldfjasldfjsaldff';
+  let titulo = 'Lorem Ipsum';
+  let txt = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
   let primerHilo = new Hilo(0, 0, tags, titulo, txt);
 
   listaHilos.add(primerHilo);
