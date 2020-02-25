@@ -1,0 +1,51 @@
+h2 {
+  margin-right: 0.5em;
+  color: white;
+}
+
+article {
+  border-radius: 0.5em;
+  //margin: 1em;
+  padding:0.3em;
+
+}
+article:last-child{
+  margin-bottom: 1em;
+}
+.btn{
+  border: 1px solid white;
+}
+.row{
+  margin: 10px;
+}
+.lvl0{
+  border: 1px solid cornflowerblue;
+  background-color: cornflowerblue;
+
+}
+
+.lvl1 {
+  border: 1px solid white;
+  background-color: dodgerblue;
+  margin: 1em;
+  width: 80%;
+  pposition: relative;
+  lleft: 2em;
+  margin: 0 auto;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.lvl2 {
+  border: 1px solid red;
+  margin: 1em;
+  width: 50%;
+}
+
+.btn-success,
+.btn-info {
+  width: min-content;
+  margin: 0 auto;
+  margin-top: 1em;
+}

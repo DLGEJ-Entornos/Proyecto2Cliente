@@ -23,3 +23,5 @@
   1. cojo tag Section le hago append article(contenedor padre hilos lvl0) TAREA FINAL
     1.1 A article le lleno con los datos del hilo (h2,p, img...) +Button(RESPONDER) + span (fin de data, start HIJOS)
     1.2  
+
+NO RENDERIZA BIEN EL HEADER CUANDO HE HECHO LOGIN

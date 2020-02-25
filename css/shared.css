@@ -9,7 +9,7 @@ body{
   height: 0px;
   position: absolute;
   z-index:1;
-  background-color: blue;
+  background-color: white;
 }
 #loginReg > *{
   text-align: center;

@@ -24,7 +24,6 @@ if (stVacio) {
 listaUsers.mostrar(); //info obj creados
 //////////////
 
-
 //HEADER// Tareas para renderizar el login , registro ...//////
 renderHeader();
 
