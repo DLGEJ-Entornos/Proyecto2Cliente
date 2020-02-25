@@ -9,7 +9,8 @@ body{
   height: 0px;
   position: absolute;
   z-index:1;
-  background-color: white;
+  background-color: rgb(229, 47, 110); 
+  border-radius: 0.5em;
 }
 #loginReg > *{
   text-align: center;
@@ -21,6 +22,14 @@ body{
   margin-top:20px;
   margin-right:45%;
   margin-left:45%;
+  border-radius: 0.5em;
+}
+#loginReg button:first-of-type:hover{
+    background-color: greenyellow;
+}
+#loginReg button:last-of-type:hover{
+    background-color: orange;
+
 }
 h1,h2,h3,h4{
     text-align: center;
@@ -28,6 +37,7 @@ h1,h2,h3,h4{
 }
 header{
     background-color: #EEEEEE;
+    border-radius: 0.5em;
 }
 header img{
     width: 4em;
@@ -35,6 +45,7 @@ header img{
 }
 header nav{
     display: inline-flex !important ;
+  border-radius: 0.5em;
 }
 header nav ul li{
     list-style: none;
@@ -43,6 +54,7 @@ header nav ul li a{
     text-decoration: none;
     color:#2d3646;
     font-weight: bold;
+  border-radius: 0.5em;
 }
 header nav ul li a:hover{
     background-color: #E52F6E;
