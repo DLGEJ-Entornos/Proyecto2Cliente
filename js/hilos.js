@@ -11,7 +11,6 @@ if (stNoHilos()) {
 }
 listaHilos.mostrar(); //info obj hilos creados
 
-///// RENDER HILOS ///// por ahora lvl 0
 renderHilos();
 
 function renderHilos() {
@@ -22,8 +21,8 @@ function renderHilos() {
       - RESPUESTAS - 
       Cont HILOS level 1 = <div class(H1)> : cH1
       Cont hilo level 1 = <div class(h1)> : ch1
-        Cont HILOS level 2 = <div class(H2)> : cH2
-        Cont hilo level 2 = <div class(h2)> : ch2
+        Cont HILOS level 2 = <div class(H2)> : cH2 --NO IMPLEMENTADO
+        Cont hilo level 2 = <div class(h2)> : ch2  --NO IMPLEMENTADO
   */
 
   // Creando Hilos level0 (articles) (ch0) ////////////////
@@ -66,12 +65,21 @@ function renderHilos() {
 }
 
 function crearHiloSup() { //al accionar onclick
-  let titulo = document.getElementById('tbTitulo').value;
-  let txt = document.getElementById('tbTxt').value;
-  //userLogged.id
-  let newHilo = new Hilo(0, userLogged.id, tags = null, titulo, txt);
-  listaHilos.add(newHilo);
-  renderHilos();
+
+  //////EXPRESION REGULAR 2 ////
+  let tbTxt = document.getElementById('tbTxt');
+  let regXpTabSusp = /;/g;
+  if (regXpTabSusp.test(tbTxt.value)) {
+    alert('Tu texto no puede tener punto y coma.');
+  } else {
+    //CREA BOTON
+    let titulo = document.getElementById('tbTitulo').value;
+    let txt = document.getElementById('tbTxt').value;
+    //userLogged.id
+    let newHilo = new Hilo(0, userLogged.id, tags = null, titulo, txt);
+    listaHilos.add(newHilo);
+    renderHilos();
+  }
 }
 function crearRespuesta(lvlHiloID) { //lvl1
   let level = lvlHiloID.substr(0, 1); // al que pertenecera el prox hilo
@@ -90,7 +98,9 @@ function crearRespuesta(lvlHiloID) { //lvl1
 }
 
 function crearBtnColapsable(level, hiloID) {
-  let hiloIDclean = hiloID.replace(/\./g, '-');//++ REGEXP 1 ++// 
+
+  //////// EXPRESION REGULAR 1 ///////
+  let hiloIDclean = hiloID.replace(/\./g, '-');
   let link = document.createElement("a");
   link.setAttribute('class', "btn btn-primary");
   link.setAttribute('data-toggle', "collapse");
@@ -126,7 +136,9 @@ function crearBtnColapsable(level, hiloID) {
   textA[0].setAttribute('rows', "4");
   let boton = $("<button></button>");
   boton[0].setAttribute('class', "btnCreaResp" + idRespuesta + " btn btn-info");
-  //++ EVENTOS DE RATON 1,2 Y 3 ++//
+
+  //// EVENTOS DE RATON 1,2 Y 3 /////
+
   boton[0].setAttribute('onclick', "crearRespuesta('" + idRespuesta + "')"); //VINCULACION 
   boton[0].addEventListener("mouseover", alertarSesion);
   boton[0].addEventListener("mouseout", quitAlertarSesion);
@@ -177,14 +189,14 @@ function quitAlertarSesion() {
 }
 
 
-  ///EVENTO TECLADO 2/// 
+///EVENTO TECLADO 2/// 
 document.getElementById('tbTitulo').addEventListener('keypress', function (ev) {
 
   let esLetra = function (letra) {
 
     if (letra != letra.toUpperCase() || letra != letra.toLowerCase()) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }

@@ -4,7 +4,7 @@ var stVacio = localStorage.length == 0 ? true : false;
 
 function stInitUsers() {
   listaUsers = new ListaUsuarios();
-  let primerUsuario = new Usuario('Jon', 'doe',
+  let primerUsuario = new Usuario('Jon', 'Do3',
     '../assets/profilePic/jon.jpg');
 
   listaUsers.add(primerUsuario);

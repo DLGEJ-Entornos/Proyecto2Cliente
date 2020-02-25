@@ -45,29 +45,39 @@ function openLoginRegis(selector) {
   function loguear() {
     let user = listaUsers.find(inpNom.value);
     if (user != null) {
-      listaUsers.killAllSesions();
-      user.loged = true;
-      user.logInSesion(user.id); //GUARDA COOKIE
-      listaUsers.grabar(listaUsers.lista);
-      renderHeader();
+      if(user.pass == inpPass.value)
+      {
+        listaUsers.killAllSesions();
+        user.loged = true;
+        user.logInSesion(user.id); //GUARDA COOKIE
+        listaUsers.grabar(listaUsers.lista);
+        renderHeader();
+
+      }else{
+        alert("Contraseña incorrecta");
+      }
     } else {
-      console.log("usuario no encontrado no hecho login");
+      alert("Usuario no encontrado");
     }
     salir();
   }
 
   function registrar() {
-    //VALIDACIÓN!
-    let newUser = new Usuario(inpNom.value, inpPass.value, null);
-    //REGISTRAR Y LOGUEAR RECIEN CREADO
-    listaUsers.killAllSesions();
-    newUser.loged = true;
-    listaUsers.add(newUser);
-    newUser.logInSesion(newUser.id); //GUARDA COOKIE
-    listaUsers.grabar(listaUsers.lista);
-    renderHeader();
-    //location.reload();
-    salir();
+    let ExpRPass = /(?=.*[a-z])+(?=.*[A-Z])+(?=.*[0-9])+/;  
+    if(ExpRPass.test(inpPass.value)){
+      console.log("contraseña adecuada");
+      let newUser = new Usuario(inpNom.value, inpPass.value, null);
+      //REGISTRAR Y LOGUEAR RECIEN CREADO
+      listaUsers.killAllSesions();
+      newUser.loged = true;
+      listaUsers.add(newUser);
+      newUser.logInSesion(newUser.id); //GUARDA COOKIE
+      listaUsers.grabar(listaUsers.lista);
+      renderHeader();
+      salir();
+    }else{
+      alert("Contraseña inadecuada. Tiene que tener mínimo 1 mayuscula, 1 minuscula y 1 digito! ");
+    }
   }
 
   function salir() {
