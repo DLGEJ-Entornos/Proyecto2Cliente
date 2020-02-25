@@ -81,8 +81,8 @@ function openLoginRegis(selector) {
 
   }
   var inpNom, inpPass;
-
-  function create(opcion) { //CREACION DINAMICA DEL DOM
+  //////CREACION DINAMICA DEL DOM //////
+  function create(opcion) {
     inpNom = document.createElement('input');
     inpPass = document.createElement('input');
     var br = document.createElement('br');
@@ -102,6 +102,35 @@ function openLoginRegis(selector) {
     exit.onclick = salir;
   }
   selector == 'log' ? create('log') : create('regis');
+
+  ///EVENTO TECLADO 1/// 
+  inpNom.addEventListener('keydown', function (ev) {
+    console.log(ev.keyCode)
+    let l = ev.keyCode;
+
+
+    if ((l >= 65 && l <= 90) || (l >= 37 && l <= 40) || l == 32 || l == 8
+      || l == 46) {
+      console.log('letra en nombre valida');
+    } else
+      ev.preventDefault();
+
+  });
+
+  inpPass.addEventListener('keydown', function (ev) {
+    console.log(ev.keyCode)
+    let l = ev.keyCode;
+    let kCodNums = [48,49,50,51,52,53,54,55,56,57]; 
+    let kCodNumsPad = [96,97,98,99,100,101,102,103,104,105]; 
+
+    //letras 65 a 90  ESPACIO: 32 borrar: 8 sup:46 flechas: 37-40
+    if ((l >= 65 && l <= 90) || (l >= 37 && l <= 40) || l == 32 || l == 8
+      || l == 46 || kCodNums.includes(l) || kCodNumsPad.includes(l)) {
+      console.log('letra en nombre valida');
+    } else
+      ev.preventDefault();
+
+  });
 }
 
 
@@ -116,7 +145,7 @@ function renderHeader() {
   $('#logOut').remove();
   $('#login').remove();
   $('#registro').remove();
-   
+
   if (logueado) {
     miAreaLink.setAttribute('class', 'nav-link');
 

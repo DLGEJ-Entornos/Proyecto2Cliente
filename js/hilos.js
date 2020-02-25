@@ -57,7 +57,7 @@ function renderHilos() {
       let autor = $("<b></b>").text(listaUsers.getName(hiloL1.autorId));
       let texto = $("<p></p>").text(hiloL1.txt);
       let br = $("<br></br>");
-      ch1.append(titulo[0], autor[0], texto[0], br[0],);
+      ch1.append(titulo[0], autor[0], texto[0], br[0]);
       cH1.append(ch1);
     })
     span[0].append(cH1);
@@ -94,7 +94,7 @@ function crearBtnColapsable(level, hiloID) {
   let link = document.createElement("a");
   link.setAttribute('class', "btn btn-primary");
   link.setAttribute('data-toggle', "collapse");
-  link.setAttribute('href', "#multiCollapse" + hiloIDclean); 
+  link.setAttribute('href', "#multiCollapse" + hiloIDclean);
   link.setAttribute('role', "button");
   link.setAttribute('aria-expanded', "false");
   //link.setAttribute('aria-controls',"multiCollapseExample1");
@@ -128,8 +128,8 @@ function crearBtnColapsable(level, hiloID) {
   boton[0].setAttribute('class', "btnCreaResp" + idRespuesta + " btn btn-info");
   //++ EVENTOS DE RATON 1,2 Y 3 ++//
   boton[0].setAttribute('onclick', "crearRespuesta('" + idRespuesta + "')"); //VINCULACION 
-  boton[0].addEventListener("mouseover",alertarSesion);
-  boton[0].addEventListener("mouseout",quitAlertarSesion);
+  boton[0].addEventListener("mouseover", alertarSesion);
+  boton[0].addEventListener("mouseout", quitAlertarSesion);
   boton.text("Enviar");
 
   //debugger;
@@ -147,31 +147,52 @@ function crearBtnColapsable(level, hiloID) {
 ////MISCELÁNEA
 
 var btnsEnviar = document.getElementsByClassName('btn-info');
-$('.btn-success').hover(alertarSesion,quitAlertarSesion);
+$('.btn-success').hover(alertarSesion, quitAlertarSesion);
 
 function alertarSesion() {
 
   if (userLogged === null) {
-    $('.btn-success').css("background-color","tomato");
+    $('.btn-success').css("background-color", "tomato");
     $('.btn-success')[0].disabled = true;
 
-    Array.from(btnsEnviar).map(b =>{b.disabled = true;});
+    Array.from(btnsEnviar).map(b => { b.disabled = true; });
     Array.from(btnsEnviar).forEach(btn => {
       btn.style = "background-color:tomato";
     })
-  
-    setTimeout(function(){
-     alert("Loguéate primero!"); 
-    },300);
+
+    setTimeout(function () {
+      alert("Loguéate primero!");
+    }, 300);
   }
 }
 function quitAlertarSesion() {
 
-  $('.btn-success').css("background-color","rgb(34, 141, 58)");
+  $('.btn-success').css("background-color", "rgb(34, 141, 58)");
   $('.btn-success')[0].disabled = false;
 
-  Array.from(btnsEnviar).map(b =>{b.disabled = false;});
+  Array.from(btnsEnviar).map(b => { b.disabled = false; });
   Array.from(btnsEnviar).forEach(btn => {
     btn.style = "background-color:rgb(21, 146, 166);";
   })
 }
+
+
+  ///EVENTO TECLADO 2/// 
+document.getElementById('tbTitulo').addEventListener('keypress', function (ev) {
+
+  let esLetra = function (letra) {
+
+    if (letra != letra.toUpperCase() || letra != letra.toLowerCase()) {
+      return true;
+    }else{
+      return false;
+    }
+  }
+  console.log(ev.key)
+  let l = ev.key;
+  if ((esLetra(l) && l.toUpperCase() == l) || l == ' ') {
+    console.log("valida ES MAYS");
+  } else
+    ev.preventDefault();
+
+});
