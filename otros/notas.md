@@ -5,7 +5,7 @@ NOTAS PROYECTO 2 CLIENTE
 
 - Eventos Raton (1 onclick + otros 2) TODOS //++ hilos.js  OK!
 - Eventos Teclado para validar (2 min) OK!
-- 3 RegExp (1 //++ hilos.js fun crearBtnColapsable)
+- 3 RegExp (1 //++ hilos.js fun crearBtnColapsable) OK!
 - Uso de cookies OK!
 - Creación dinámica del DOM [OK!]
 - Carpeta ./js con scripts  [OK!]

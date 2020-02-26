@@ -8,7 +8,7 @@ function ListaUsuarios() {
     this.lista = JSON.parse(localStorage.getItem("Usuarios"));  
   }
   //vuelca de LS a lista (Array)
-  this.volcarDeLS = ; 
+  this.volcarDeLS =; 
   this.add = (objUsuario) => {
     this.lista.push(objUsuario);
     guardarUser(

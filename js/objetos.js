@@ -9,7 +9,6 @@ function Usuario(nombre, pass, foto) {
 
   function genId() {
     let res;
-    //CAMBIAR POR METODO LENGTH DE LISTA
     let lengthLista = listaUsers.lista.length;
     if (lengthLista == 0) {
       res = 0;
@@ -92,20 +91,25 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   this.tags = tags; //array
   this.titulo = titulo;
   this.txt = txt;
+
+  //No implementado
   this.deleted = false; //recursivo no show hijos
   this.htmlTag = null; //el obj Instanciado del dom que guarda su hilo
   this.padre = getPadre();
   this.hijos = new Array();
+  //
 
   function genIdHilo() {
-    //debugger;
+    
     let lengthLista = listaHilos.lista.length;
+
     if (lengthLista == 0) { //en init
       return '0.0';
+
     } else if (lvl == 0) { //crear nuevo hilo (no respuesta)
+
       let lastID = listaHilos.lista[lengthLista - 1].id;
       let lastIDcola = lastID.substr(-1);
-      //let newID = '0.' + (parseInt(lastIDcola)+1);
       lastIDcola++;
       let newID = '0.' + lastIDcola;
       return newID; 
@@ -113,15 +117,10 @@ function Hilo(lvl, autorId, tags, titulo, txt) {
   }
 
   function getPadre() {
-    //debugger;
+    
     console.log('lvl en getPadre: ', lvl);
     return lvl == 0 ? null : undefined
   }
-
-  //Arrays de objs
-  //this.hermanos = getHerm(); //herm=0 => [].
-  //this.hijos = getHijos(); //hijos=0 => [].
-
 }
 
 function ListaHilosSup() {
@@ -130,7 +129,7 @@ function ListaHilosSup() {
   this.grabar = stGrabarHilos;
   this.volcar = volcarHilosDeSt;
 
-  this.add = (objHilo) => { //func poliv (add para distintos niveles)
+  this.add = (objHilo) => { 
     this.lista.push(objHilo);
     this.grabar(this.lista);
   };

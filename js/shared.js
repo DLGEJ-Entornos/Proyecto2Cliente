@@ -1,4 +1,4 @@
-//debugger;
+;
 //Comprobaciones de sesion al inicio
 var logueado = haySesion();
 console.log("VAR logueado en shared: " + logueado);
@@ -18,8 +18,6 @@ if (stVacio) {
 } else {
   console.log("volcando users");
   listaUsers.volcar();
-  //renderHeader();
-  //logOut('noRend');
 }
 listaUsers.mostrar(); //info obj creados
 //////////////
@@ -63,6 +61,7 @@ function openLoginRegis(selector) {
   }
 
   function registrar() {
+    //// EXPRESION REGULAR 3 /////
     let ExpRPass = /(?=.*[a-z])+(?=.*[A-Z])+(?=.*[0-9])+/;  
     if(ExpRPass.test(inpPass.value)){
       console.log("contraseña adecuada");
@@ -157,7 +156,7 @@ function renderHeader() {
   $('#registro').remove();
 
   if (logueado) {
-    miAreaLink.setAttribute('class', 'nav-link');
+    //miAreaLink.setAttribute('class', 'nav-link');
 
 
     let nombre = document.createElement('a');
@@ -175,7 +174,7 @@ function renderHeader() {
     regORlogOut.append(logOut);
 
   } else {
-    miAreaLink.setAttribute('class', 'nav-link disabled');
+    //miAreaLink.setAttribute('class', 'nav-link disabled');
 
     let login = document.createElement('a');
     login.setAttribute('class', 'nav-link');

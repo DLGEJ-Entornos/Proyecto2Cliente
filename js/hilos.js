@@ -1,4 +1,4 @@
-//debugger;
+;
 var listaHilos = new ListaHilosSup();
 
 //RUTINAS de inicio en funcion de datos almacenados
@@ -6,7 +6,7 @@ if (stNoHilos()) {
   listaHilos.init()
 } else {
   console.log('en volcado d hilo');
-  //debugger;
+ 
   listaHilos.volcar();
 }
 listaHilos.mostrar(); //info obj hilos creados
@@ -21,8 +21,10 @@ function renderHilos() {
       - RESPUESTAS - 
       Cont HILOS level 1 = <div class(H1)> : cH1
       Cont hilo level 1 = <div class(h1)> : ch1
-        Cont HILOS level 2 = <div class(H2)> : cH2 --NO IMPLEMENTADO
-        Cont hilo level 2 = <div class(h2)> : ch2  --NO IMPLEMENTADO
+
+              --NO IMPLEMENTADO--
+        Cont HILOS level 2 = <div class(H2)> : cH2 
+        Cont hilo level 2 = <div class(h2)> : ch2  
   */
 
   // Creando Hilos level0 (articles) (ch0) ////////////////
@@ -31,7 +33,7 @@ function renderHilos() {
   var ch0;
 
   listaHS.forEach(hiloL0 => {
-    //debugger;
+   
     ch0 = document.createElement("article");
     ch0.setAttribute('id', hiloL0.id);
     ch0.setAttribute('class', 'lvl' + hiloL0.lvl);
@@ -85,7 +87,7 @@ function crearRespuesta(lvlHiloID) { //lvl1
   let level = lvlHiloID.substr(0, 1); // al que pertenecera el prox hilo
   let idHiloPadre = lvlHiloID.substr(2).replace(/\-/g, '.'); //0.1 ()
 
-  //debugger;
+ 
   let titulo = document.getElementsByClassName('tbTitulo' + lvlHiloID)[0].value;
   let txt = document.getElementsByClassName('tbTxt' + lvlHiloID)[0].value;
   let newHilo = new Hilo(level, userLogged.id, tags = null, titulo, txt);
@@ -144,7 +146,7 @@ function crearBtnColapsable(level, hiloID) {
   boton[0].addEventListener("mouseout", quitAlertarSesion);
   boton.text("Enviar");
 
-  //debugger;
+ 
   divs[3].append(input[0], textA[0], boton[0]);
   divs[2].append(divs[3]);
   divs[1].append(divs[2]);

@@ -17,14 +17,16 @@ function stGrabar(lista) { //array 'Jsonizado'
 }
 
 
-function volcarDeSt() { //asumimos lista= array vacio
+function volcarDeSt() { 
   console.log(JSON.parse(localStorage.getItem("Usuarios")));
 
   let arrObjGenericos = JSON.parse(localStorage.getItem("Usuarios"));
   let arrLista = [];
   for (const obj of arrObjGenericos) {
     let usuario = new Usuario(obj.nombre, obj.pass, obj.foto);
-    usuario.id = obj.id; //no puede autogenerar, lista de ListaUsers vacia
+
+    //no puede autogenerar, lista de ListaUsers vacia, por ello:
+    usuario.id = obj.id; 
     usuario.loged = obj.loged;
     arrLista.push(usuario);
   }
@@ -126,7 +128,7 @@ function volcarHilosDeSt() {
     for (let i = 0; i < obj.hijos.length; i++) {
       let res = obj.hijos[i]; //respuesta
       let subHilo = new Hilo(res.lvl, res.autorId, res.tags, res.titulo, res.txt);
-      subHilo.id = res.id; //no puede autogenerar?, lista de ListaUsers vacia
+      subHilo.id = res.id; 
       subHilo.timeEstampa = res.timeEstampa;
       subHilo.deleted = res.deleted;
       arrHijos.push(subHilo);
